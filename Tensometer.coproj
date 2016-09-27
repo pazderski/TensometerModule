@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Project version="2G - 1.7.8" name="Tensometer">
-  <Target name="TwoEncodersInterface" isCurrent="1">
+  <Target name="Tensometer" isCurrent="1">
     <Device manufacturerId="9" manufacturerName="ST" chipId="305" chipName="STM32F103C8" boardId="" boardName=""/>
     <BuildOption>
       <Compile>
@@ -40,7 +40,7 @@
       <Output>
         <Option name="OutputFileType" value="0"/>
         <Option name="Path" value="./"/>
-        <Option name="Name" value="TwoEncodersInterface"/>
+        <Option name="Name" value="Tensometer"/>
         <Option name="HEX" value="1"/>
         <Option name="BIN" value="1"/>
       </Output>
@@ -71,18 +71,15 @@
     </DebugOption>
     <ExcludeFile/>
   </Target>
-  <Components path="./">
-    <Component id="50" name="CMSIS core" path="" type="2"/>
-    <Component id="439" name="CMSIS_Boot" path="" type="2"/>
-  </Components>
+  <Components path="./"/>
   <Files>
     <File name="include/ad7730_device.h" path="../../../mms_car/firmware/impulsator/src/ad7730_device.h" type="1"/>
     <File name="cmsis" path="" type="2"/>
     <File name="cmsis_boot/system_stm32f10x.c" path="cmsis_boot/system_stm32f10x.c" type="1"/>
     <File name="src/main.cpp" path="src/main.cpp" type="1"/>
-    <File name="include/encoder_interface.h" path="include/encoder_interface.h" type="1"/>
     <File name="src/common.cpp" path="src/common.cpp" type="1"/>
     <File name="cmsis/core_cmInstr.h" path="cmsis/core_cmInstr.h" type="1"/>
+    <File name="include/encoder_interface.h" path="include/encoder_interface.h" type="1"/>
     <File name="include/hdr_bitband.h" path="include/hdr_bitband.h" type="1"/>
     <File name="cmsis_boot/system_stm32f10x.h" path="cmsis_boot/system_stm32f10x.h" type="1"/>
     <File name="src/encoder_interface.cpp" path="src/encoder_interface.cpp" type="1"/>
@@ -90,8 +87,8 @@
     <File name="cmsis_boot" path="" type="2"/>
     <File name="src" path="" type="2"/>
     <File name="cmsis_boot/startup" path="" type="2"/>
-    <File name="include" path="" type="2"/>
     <File name="cmsis/core_cmFunc.h" path="cmsis/core_cmFunc.h" type="1"/>
+    <File name="include" path="" type="2"/>
     <File name="cmsis_boot/startup/startup_stm32f10x_md.c" path="cmsis_boot/startup/startup_stm32f10x_md.c" type="1"/>
     <File name="include/common.h" path="include/common.h" type="1"/>
     <File name="cmsis_boot/stm32f10x.h" path="cmsis_boot/stm32f10x.h" type="1"/>
