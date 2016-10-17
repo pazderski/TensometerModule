@@ -13,12 +13,14 @@ class Tensometer
 	static uint8_t const COMM_REG_RW1 = 0x20;
 	static uint8_t const COMM_REG_WEN = 0x80;
 
-	// Data register
-	static uint8_t const DAT_REG_MS0 = 0x01;
-	static uint8_t const DAT_REG_MS1 = 0x02;
-	static uint8_t const DAT_REG_MS2 = 0x04;
-	static uint8_t const DAT_REG_MS3 = 0x08;
-
+	// Status register
+	static uint8_t const STA_REG_MS0 = 0x01;
+	static uint8_t const STA_REG_MS1 = 0x02;
+	static uint8_t const STA_REG_MS2 = 0x04;
+	static uint8_t const STA_REG_MS3 = 0x08;
+	static uint8_t const STA_REG_NOREF = 0x10;
+	static uint8_t const STA_REG_STBY = 0x20;
+	static uint8_t const STA_REG_STDY = 0x10;
 
 	// Definicje stanow automatu do obslugi akcelerometru
 	enum FsmState

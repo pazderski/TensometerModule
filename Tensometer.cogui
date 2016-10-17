@@ -11,13 +11,18 @@
 <folder appearance="1" expanded="2">
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
 <part id="0"/>
+<part id="1"/>
 </presentation>
 </folder>
 </info>
 </editorArea>
-<editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="ad7730_device.h" partName="ad7730_device.h" path="E:/praca/projekty/grant_medyczny/tensometr/firmware/include/ad7730_device.h" title="ad7730_device.h" tooltip="E:/praca/projekty/grant_medyczny/tensometr/firmware/include/ad7730_device.h" workbook="DefaultEditorWorkbook">
+<editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="ad7730_device.h" partName="ad7730_device.h" path="C:/student/pracownia2016/TensometerModule/include/ad7730_device.h" title="ad7730_device.h" tooltip="C:/student/pracownia2016/TensometerModule/include/ad7730_device.h" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Tensometer/include/ad7730_device.h"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="681" selectionTopPixel="150"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="encoder_interface.h" partName="encoder_interface.h" path="C:/student/pracownia2016/TensometerModule/include/encoder_interface.h" title="encoder_interface.h" tooltip="C:/student/pracownia2016/TensometerModule/include/encoder_interface.h" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Tensometer/include/encoder_interface.h"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1707" selectionTopPixel="1215"/>
 </editor>
 </editors>
 <views>
@@ -31,9 +36,10 @@
 <expanded>
 <element path="/Tensometer"/>
 <element path="/Tensometer/include"/>
+<element path="/Tensometer/src"/>
 </expanded>
 <selection>
-<element path="/Tensometer/include/ad7730_device.h"/>
+<element path="/Tensometer/src/main.cpp"/>
 </selection>
 </viewState>
 </view>
@@ -56,7 +62,8 @@
 </view>
 <view id="org.coocox.coassistant.view.CoAssistantView_debug" partName="Peripherals">
 <viewState horizontalPosition="0" verticalPosition="0">
-<selection>&#x0A;<element name="GPIOA"/>
+<selection>
+<element name="GPIOA"/>
 </selection>
 <registerValues baseAddress="Base Address: 0x40010800" description="Description:  General Purpose I/O A"/>
 </viewState>
@@ -200,8 +207,8 @@
 <hide_toolbar_item_id id="org.eclipse.ui.edit.text.toggleShowSelectedElementOnly"/>
 <hide_toolbar_item_id id="org.coocox.builder.ui.build"/>
 <hide_toolbar_item_id id="org.coocox.welcome.ui.action.welcome"/>
-<hide_toolbar_item_id id="org.coocox.component.ui.ShowRepositoryAction"/>
 <hide_toolbar_item_id id="org.coocox.codebugger.configuration.coideProgramDownloadAction"/>
+<hide_toolbar_item_id id="org.coocox.component.ui.ShowRepositoryAction"/>
 <view id="org.eclipse.ui.console.ConsoleView"/>
 <view id="org.eclipse.debug.ui.DebugView"/>
 <view id="org.eclipse.debug.ui.BreakpointView"/>
@@ -215,31 +222,44 @@
 <view id="org.coocox.builder.ui.views.ProjectView"/>
 <fastViewBars/>
 <viewLayoutRec closeable="false" id="org.eclipse.debug.ui.DebugView"/>
-<layout>&#x0A;<mainWindow>&#x0A;<info folder="true" part="org.eclipse.ui.internal.ViewStack@132bfeb">&#x0A;<folder activePageID="org.coocox.builder.ui.views.ProjectView" appearance="2" expanded="2">&#x0A;<page content="org.coocox.builder.ui.views.ProjectView" label="Project"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">&#x0A;<part id="0"/>
+<layout>
+<mainWindow>
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@132bfeb">
+<folder activePageID="org.coocox.builder.ui.views.ProjectView" appearance="2" expanded="2">
+<page content="org.coocox.builder.ui.views.ProjectView" label="Project"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
 </presentation>
 </folder>
 </info>
-<info folder="true" part="stickyFolderRight" ratio="0.75" ratioLeft="1434" ratioRight="478" relationship="2" relative="org.eclipse.ui.internal.ViewStack@132bfeb">&#x0A;<folder appearance="2" expanded="2">&#x0A;<page content="org.eclipse.help.ui.HelpView" label="LabelNotFound"/>
+<info folder="true" part="stickyFolderRight" ratio="0.75" ratioLeft="1434" ratioRight="478" relationship="2" relative="org.eclipse.ui.internal.ViewStack@132bfeb">
+<folder appearance="2" expanded="2">
+<page content="org.eclipse.help.ui.HelpView" label="LabelNotFound"/>
 <page content="org.eclipse.ui.internal.introview" label="LabelNotFound"/>
 </folder>
 </info>
-<info folder="true" part="org.eclipse.ui.internal.ViewStack@1d8b476" ratio="0.69957536" ratioLeft="659" ratioRight="283" relationship="4" relative="org.eclipse.ui.internal.ViewStack@132bfeb">&#x0A;<folder activePageID="org.eclipse.debug.ui.DebugView" appearance="2" expanded="2">&#x0A;<page content="org.eclipse.ui.console.ConsoleView" label="Console"/>
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@1d8b476" ratio="0.69957536" ratioLeft="659" ratioRight="283" relationship="4" relative="org.eclipse.ui.internal.ViewStack@132bfeb">
+<folder activePageID="org.eclipse.ui.console.ConsoleView" appearance="2" expanded="2">
+<page content="org.eclipse.ui.console.ConsoleView" label="Console"/>
 <page content="org.eclipse.debug.ui.DebugView" label="Debug"/>
 <page content="org.eclipse.debug.ui.BreakpointView" label="Breakpoints"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">&#x0A;<part id="0"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
 <part id="1"/>
 <part id="2"/>
 </presentation>
 </folder>
 </info>
-<info folder="true" part="org.eclipse.ui.internal.ViewStack@e7dfd0" ratio="0.5" ratioLeft="956" ratioRight="956" relationship="2" relative="org.eclipse.ui.internal.ViewStack@1d8b476">&#x0A;<folder activePageID="org.eclipse.cdt.debug.ui.memory.memorybrowser.MemoryBrowser" appearance="2" expanded="2">&#x0A;<page content="org.coocox.codebugger.trace.ui.traceview" label="Semihosting"/>
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@e7dfd0" ratio="0.5" ratioLeft="956" ratioRight="956" relationship="2" relative="org.eclipse.ui.internal.ViewStack@1d8b476">
+<folder activePageID="org.eclipse.cdt.debug.ui.memory.memorybrowser.MemoryBrowser" appearance="2" expanded="2">
+<page content="org.coocox.codebugger.trace.ui.traceview" label="Semihosting"/>
 <page content="org.eclipse.debug.ui.VariableView" label="Variables"/>
 <page content="org.eclipse.cdt.debug.ui.memory.memorybrowser.MemoryBrowser" label="Memory Browser"/>
 <page content="org.eclipse.debug.ui.ExpressionView" label="Expressions"/>
 <page content="org.coocox.component.ui.ComponentView" label="Components"/>
 <page content="org.eclipse.debug.ui.MemoryView" label="LabelNotFound"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">&#x0A;<part id="0"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
 <part id="1"/>
 <part id="2"/>
 <part id="3"/>
@@ -247,16 +267,19 @@
 </presentation>
 </folder>
 </info>
-<info folder="true" part="org.eclipse.ui.internal.ViewStack@6bfcff" ratio="0.65584075" ratioLeft="1252" ratioRight="657" relationship="2" relative="org.eclipse.ui.internal.ViewStack@132bfeb">&#x0A;<folder activePageID="org.coocox.coassistant.view.CoAssistantView_debug" appearance="2" expanded="2">&#x0A;<page content="org.eclipse.cdt.dsf.debug.ui.disassembly.view" label="Disassembly"/>
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@6bfcff" ratio="0.7590188" ratioLeft="526" ratioRight="167" relationship="2" relative="org.eclipse.ui.internal.ViewStack@132bfeb">
+<folder activePageID="org.coocox.coassistant.view.CoAssistantView_debug" appearance="2" expanded="2">
+<page content="org.eclipse.cdt.dsf.debug.ui.disassembly.view" label="Disassembly"/>
 <page content="org.coocox.coassistant.view.CoAssistantView_debug" label="Peripherals"/>
 <page content="org.eclipse.ui.views.ContentOutline" label="LabelNotFound"/>
 <page content="org.eclipse.debug.ui.RegisterView" label="LabelNotFound"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">&#x0A;<part id="0"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
 <part id="1"/>
 </presentation>
 </folder>
 </info>
-<info part="org.eclipse.ui.editorss" ratio="0.29986054" ratioLeft="430" ratioRight="1004" relationship="2" relative="org.eclipse.ui.internal.ViewStack@132bfeb"/>
+<info part="org.eclipse.ui.editorss" ratio="0.20267686" ratioLeft="106" ratioRight="417" relationship="2" relative="org.eclipse.ui.internal.ViewStack@132bfeb"/>
 </mainWindow>
 </layout>
 </perspective>
@@ -265,12 +288,66 @@
 <navigationHistory>
 <editors>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Tensometer/include/ad7730_device.h"/>
+<editor factoryID="org.coocox.builder.ui.persistent.PersistentElementFactory" id="org.coocox.builder.ui.editors.ConfigEditor">
+<org.coocox.builder.ui.editors.ConfigEditor/>
+</editor>
+<editor factoryID="org.coocox.builder.ui.persistent.PersistentElementFactory" id="org.coocox.builder.ui.editors.ConfigEditor">
+<org.coocox.builder.ui.editors.ConfigEditor/>
+</editor>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Tensometer/include/encoder_interface.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Tensometer/src/common.cpp"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Tensometer/src/encoder_interface.cpp"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Tensometer/src/main.cpp"/>
 </editors>
 <item historyLabel="ad7730_device.h" index="0">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item active="true" historyLabel="ad7730_device.h" index="0">
+<item historyLabel="ad7730_device.h" index="0">
 <position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="Configuration" index="1"/>
+<item historyLabel="ad7730_device.h" index="0">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="Configuration" index="2"/>
+<item historyLabel="ad7730_device.h" index="0">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="encoder_interface.h" index="3">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="encoder_interface.h" index="3">
+<position info="not_deleted" x="1535" y="0"/>
+</item>
+<item historyLabel="encoder_interface.h" index="3">
+<position info="not_deleted" x="1707" y="0"/>
+</item>
+<item historyLabel="ad7730_device.h" index="0">
+<position info="not_deleted" x="1640" y="0"/>
+</item>
+<item historyLabel="common.cpp" index="4">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="encoder_interface.cpp" index="5">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="main.cpp" index="6">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="encoder_interface.cpp" index="5">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="common.cpp" index="4">
+<position info="not_deleted" x="201" y="0"/>
+</item>
+<item historyLabel="ad7730_device.h" index="0">
+<position info="not_deleted" x="1640" y="0"/>
+</item>
+<item historyLabel="encoder_interface.h" index="3">
+<position info="not_deleted" x="1707" y="0"/>
+</item>
+<item active="true" historyLabel="ad7730_device.h" index="0">
+<position info="not_deleted" x="1640" y="0"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -279,51 +356,54 @@
 <actionBarAdvisor/>
 </window>
 <mruList>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="ad7730_device.h" tooltip="Tensometer/include/ad7730_device.h">
-<persistable path="/Tensometer/include/ad7730_device.h"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="encoder_interface.h" tooltip="Tensometer/include/encoder_interface.h">
-<persistable path="/Tensometer/include/encoder_interface.h"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f10x.h" tooltip="Tensometer/cmsis_boot/stm32f10x.h">
-<persistable path="/Tensometer/cmsis_boot/stm32f10x.h"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="led_interface.h" tooltip="Tensometer/include/led_interface.h">
-<persistable path="/Tensometer/include/led_interface.h"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.cpp" tooltip="Tensometer/src/main.cpp">
+<persistable path="/Tensometer/src/main.cpp"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="encoder_interface.cpp" tooltip="Tensometer/src/encoder_interface.cpp">
 <persistable path="/Tensometer/src/encoder_interface.cpp"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="system_stm32f10x.c" tooltip="Tensometer/cmsis_boot/system_stm32f10x.c">
-<persistable path="/Tensometer/cmsis_boot/system_stm32f10x.c"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="common.cpp" tooltip="Tensometer/src/common.cpp">
+<persistable path="/Tensometer/src/common.cpp"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="common.h" tooltip="Tensometer/include/common.h">
-<persistable path="/Tensometer/include/common.h"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="encoder_interface.h" tooltip="Tensometer/include/encoder_interface.h">
+<persistable path="/Tensometer/include/encoder_interface.h"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="startup_stm32f10x_md_vl.c" tooltip="stm32F100RB_FreeRtos_Blinky/cmsis_boot/startup/startup_stm32f10x_md_vl.c">
-<persistable path="/stm32F100RB_FreeRtos_Blinky/cmsis_boot/startup/startup_stm32f10x_md_vl.c"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="system_stm32f10x.c" tooltip="stm32F100RB_FreeRtos_Blinky/cmsis_boot/system_stm32f10x.c">
-<persistable path="/stm32F100RB_FreeRtos_Blinky/cmsis_boot/system_stm32f10x.c"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" tooltip="stm32F100RB_FreeRtos_Blinky/main.c">
-<persistable path="/stm32F100RB_FreeRtos_Blinky/main.c"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="system_stm32f10x.c" tooltip="TwoEncodersInterface/cmsis_boot/system_stm32f10x.c">
-<persistable path="/TwoEncodersInterface/cmsis_boot/system_stm32f10x.c"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="hdr_bitband.h" tooltip="TwoEncodersInterface/include/hdr_bitband.h">
-<persistable path="/TwoEncodersInterface/include/hdr_bitband.h"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f10x.h" tooltip="TwoEncodersInterface/cmsis_boot/stm32f10x.h">
-<persistable path="/TwoEncodersInterface/cmsis_boot/stm32f10x.h"/>
-</file>
-<file factoryID="org.coocox.component.ui.editors.repository.RepositoryElementFactory" id="org.coocox.builder.ui.editors.repository.RepositoryBrowser" name="Repository" tooltip="Repository">
-<persistable>&#x0A;<subPage horizontalPosition="0" selectedItemId="0" subPageIndex="2" verticalPosition="0"/>
+<file factoryID="org.coocox.builder.ui.persistent.PersistentElementFactory" id="org.coocox.builder.ui.editors.ConfigEditor" name="" tooltip="">
+<persistable>
+<org.coocox.builder.ui.editors.ConfigEditor/>
 </persistable>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f10x.h" tooltip="TwoEncodersInterface/cmsis_boot/stm32f10x.h">
-<persistable path="/TwoEncodersInterface/cmsis_boot/stm32f10x.h"/>
+<file factoryID="org.coocox.builder.ui.persistent.PersistentElementFactory" id="org.coocox.builder.ui.editors.ConfigEditor" name="" tooltip="">
+<persistable>
+<org.coocox.builder.ui.editors.ConfigEditor/>
+</persistable>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f10x_gpio.c" tooltip="Transmission_PD/stm_lib/src/stm32f10x_gpio.c">
+<persistable path="/Transmission_PD/stm_lib/src/stm32f10x_gpio.c"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" tooltip="Test/main.c">
+<persistable path="/Test/main.c"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f10x_gpio.h" tooltip="Transmission_PD/stm_lib/inc/stm32f10x_gpio.h">
+<persistable path="/Transmission_PD/stm_lib/inc/stm32f10x_gpio.h"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f10x_spi.c" tooltip="Transmission_PD/stm_lib/src/stm32f10x_spi.c">
+<persistable path="/Transmission_PD/stm_lib/src/stm32f10x_spi.c"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="nrf24l01_hw_msp430.c" tooltip="Transmission_PD/nrf24l01_hw_msp430.c">
+<persistable path="/Transmission_PD/nrf24l01_hw_msp430.c"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="msp430.h" tooltip="Transmission_PD/msp430.h">
+<persistable path="/Transmission_PD/msp430.h"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="nrf24l01.h" tooltip="Transmission_PD/nrf24l01.h">
+<persistable path="/Transmission_PD/nrf24l01.h"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="nrf24l01.c" tooltip="Transmission_PD/nrf24l01.c">
+<persistable path="/Transmission_PD/nrf24l01.c"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" tooltip="Transmission_PD/main.c">
+<persistable path="/Transmission_PD/main.c"/>
 </file>
 </mruList>
 </workbench>

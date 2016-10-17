@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<history>
+   <processor signature="arm-none-eabi-gcc noversion nomachine -mcpu=cortex-m3 -mthumb -Wall -ffunction-sections -g -O3 -std=c++11 -c -DSTM32F103C8 -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER -D__ASSEMBLY__ -DSUPPORT_CPLUSPLUS -I..\..\..\..\..\..\..\student\pracownia2016\TensometerModule\cmsis -I..\..\..\..\..\..\..\student\pracownia2016\TensometerModule\cmsis_boot -I..\..\..\..\..\..\..\student\pracownia2016\TensometerModule\include -I..\..\..\..\..\..\..\student\pracownia2016\TensometerModule -I..\..\..\..\..\..\..\student\pracownia2016">
+      <target file="startup_stm32f10x_md.o" lastModified="157d1bf7340">
+         <source file="..\..\..\cmsis_boot\startup\startup_stm32f10x_md.c" lastModified="157d1a697b4"/>
+      </target>
+      <target file="encoder_interface.o" lastModified="157d1bf7487">
+         <source file="..\..\..\src\encoder_interface.cpp" lastModified="157d1a69831"/>
+      </target>
+      <target file="system_stm32f10x.o" lastModified="157d1bf7217">
+         <source file="..\..\..\cmsis_boot\system_stm32f10x.c" lastModified="157d1a697c4"/>
+      </target>
+      <target file="main.o" lastModified="157d1bf73eb">
+         <source file="..\..\..\src\main.cpp" lastModified="157d1a69831"/>
+      </target>
+      <target file="common.o" lastModified="157d1bf72c3">
+         <source file="..\..\..\src\common.cpp" lastModified="157d1a69831"/>
+      </target>
+   </processor>
+</history>

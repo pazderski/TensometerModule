@@ -35,7 +35,7 @@
           <Memory name="IROM2" type="ReadOnly" size="" startValue=""/>
           <Memory name="IRAM2" type="ReadWrite" size="" startValue=""/>
         </MemoryAreas>
-        <LocateLinkFile path="d:/tools/arm/coocox/coide/configuration/programdata/tensometer/arm-gcc-link.ld" type="0"/>
+        <LocateLinkFile path="../../../tools/arm/coocox/coide/configuration/programdata/tensometer/arm-gcc-link.ld" type="0"/>
       </Link>
       <Output>
         <Option name="OutputFileType" value="0"/>
@@ -50,9 +50,9 @@
       </User>
     </BuildOption>
     <DebugOption>
-      <Option name="org.coocox.codebugger.gdbjtag.core.adapter" value="J-Link"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.adapter" value="KT-Link"/>
       <Option name="org.coocox.codebugger.gdbjtag.core.debugMode" value="JTAG"/>
-      <Option name="org.coocox.codebugger.gdbjtag.core.clockDiv" value="1M"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.clockDiv" value="300K"/>
       <Option name="org.coocox.codebugger.gdbjtag.corerunToMain" value="1"/>
       <Option name="org.coocox.codebugger.gdbjtag.core.jlinkgdbserver" value="C:\Program Files (x86)\SEGGER\JLink_V512j\JLinkGDBServerCL.exe"/>
       <Option name="org.coocox.codebugger.gdbjtag.core.userDefineGDBScript" value=""/>
@@ -62,7 +62,7 @@
       <Option name="org.coocox.codebugger.gdbjtag.core.ifSemihost" value="0"/>
       <Option name="org.coocox.codebugger.gdbjtag.core.ifCacheRom" value="1"/>
       <Option name="org.coocox.codebugger.gdbjtag.core.ipAddress" value="127.0.0.1"/>
-      <Option name="org.coocox.codebugger.gdbjtag.core.portNumber" value="2331"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.portNumber" value="2009"/>
       <Option name="org.coocox.codebugger.gdbjtag.core.autoDownload" value="1"/>
       <Option name="org.coocox.codebugger.gdbjtag.core.verify" value="1"/>
       <Option name="org.coocox.codebugger.gdbjtag.core.downloadFuction" value="Erase Effected"/>
@@ -77,9 +77,9 @@
     <File name="cmsis" path="" type="2"/>
     <File name="cmsis_boot/system_stm32f10x.c" path="cmsis_boot/system_stm32f10x.c" type="1"/>
     <File name="src/main.cpp" path="src/main.cpp" type="1"/>
+    <File name="src/common.cpp" path="src/common.cpp" type="1"/>
     <File name="cmsis/core_cmInstr.h" path="cmsis/core_cmInstr.h" type="1"/>
     <File name="include/encoder_interface.h" path="include/encoder_interface.h" type="1"/>
-    <File name="src/common.cpp" path="src/common.cpp" type="1"/>
     <File name="include/hdr_bitband.h" path="include/hdr_bitband.h" type="1"/>
     <File name="cmsis_boot/system_stm32f10x.h" path="cmsis_boot/system_stm32f10x.h" type="1"/>
     <File name="src/encoder_interface.cpp" path="src/encoder_interface.cpp" type="1"/>
