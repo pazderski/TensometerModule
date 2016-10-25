@@ -1,20 +1,23 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <history>
-   <processor signature="arm-none-eabi-gcc noversion nomachine -mcpu=cortex-m3 -mthumb -Wall -ffunction-sections -g -O3 -std=c++11 -c -DSTM32F103C8 -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER -D__ASSEMBLY__ -DSUPPORT_CPLUSPLUS -I..\..\..\..\..\..\..\student\pracownia2016\TensometerModule\cmsis -I..\..\..\..\..\..\..\student\pracownia2016\TensometerModule\cmsis_boot -I..\..\..\..\..\..\..\student\pracownia2016\TensometerModule\include -I..\..\..\..\..\..\..\student\pracownia2016\TensometerModule -I..\..\..\..\..\..\..\student\pracownia2016">
-      <target file="startup_stm32f10x_md.o" lastModified="157f5beb375">
-         <source file="..\..\..\cmsis_boot\startup\startup_stm32f10x_md.c" lastModified="157d1a697b4"/>
+   <processor signature="arm-none-eabi-gcc noversion nomachine -mcpu=cortex-m3 -mthumb -Wall -ffunction-sections -g -O3 -std=c++11 -c -DSTM32F103C8 -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER -D__ASSEMBLY__ -DSUPPORT_CPLUSPLUS -IE:\praca\dydaktyka\pracownia_problemowa\2016\TensometerModule\cmsis_boot -IE:\praca\dydaktyka\pracownia_problemowa\2016 -IE:\praca\dydaktyka\pracownia_problemowa\2016\TensometerModule\include -IE:\praca\dydaktyka\pracownia_problemowa\2016\TensometerModule -IE:\praca\dydaktyka\pracownia_problemowa\2016\TensometerModule\cmsis">
+      <target file="startup_stm32f10x_md.o" lastModified="157fdaf5db7">
+         <source file="..\..\..\cmsis_boot\startup\startup_stm32f10x_md.c" lastModified="157fda55200"/>
       </target>
-      <target file="encoder_interface.o" lastModified="157f5beb4d3">
-         <source file="..\..\..\src\encoder_interface.cpp" lastModified="157d1a69831"/>
+      <target file="encoder_interface.o" lastModified="157fdaf5fea">
+         <source file="..\..\..\src\encoder_interface.cpp" lastModified="157fda552a6"/>
       </target>
-      <target file="system_stm32f10x.o" lastModified="157f5beb0bd">
-         <source file="..\..\..\cmsis_boot\system_stm32f10x.c" lastModified="157d1a697c4"/>
+      <target file="system_stm32f10x.o" lastModified="157fdaf5ba5">
+         <source file="..\..\..\cmsis_boot\system_stm32f10x.c" lastModified="157fda55207"/>
       </target>
-      <target file="main.o" lastModified="157f5beb435">
-         <source file="..\..\..\src\main.cpp" lastModified="157d1a69831"/>
+      <target file="uart_communication_interface.o" lastModified="157fdaf5a37">
+         <source file="..\..\..\src\uart_communication_interface.cpp" lastModified="152328032b4"/>
       </target>
-      <target file="common.o" lastModified="157f5beb2ea">
-         <source file="..\..\..\src\common.cpp" lastModified="157d1a69831"/>
+      <target file="main.o" lastModified="157fdaf5eef">
+         <source file="..\..\..\src\main.cpp" lastModified="157fda552a7"/>
+      </target>
+      <target file="common.o" lastModified="157fdaf5ccf">
+         <source file="..\..\..\src\common.cpp" lastModified="157fda90f88"/>
       </target>
    </processor>
 </history>

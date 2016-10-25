@@ -18,13 +18,13 @@ void Delay(volatile uint32_t count)
 // Obsluga przerwania od nadajnika UART poprzez DMA
 void DMA1_Channel7_IRQHandler()
 {
-	//pApp->com.IrqDma();
+	pApp->com.IrqDma();
 }
 
 // Obsluga przerwania od odbiornika/nadajnika USART2
 void USART2_IRQHandler()
 {
-	//pApp->com.IrqTx();
+	pApp->com.IrqTx();
 }
 
 void SysTick_Handler(void)

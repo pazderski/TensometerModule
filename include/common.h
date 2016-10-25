@@ -5,6 +5,7 @@
 #include "stm32f10x.h"
 #include "led_interface.h"
 #include "encoder_interface.h"
+#include "uart_communication_interface.h"
 
 #define CPU_CLK	((uint32_t)72000000)
 
@@ -24,6 +25,7 @@ class App
 
 public:
 
+	UartCommunicationInterface com;
 	InputEncoders encodersIn;
 	OutputEncoder encoderOut;
 
@@ -43,11 +45,15 @@ public:
 		{
 			while (1);
 		}
+
+		NVIC_EnableIRQ(DMA1_Channel7_IRQn);
+		NVIC_EnableIRQ(USART2_IRQn);
 	}
 
 	void Init()
 	{
 		GeneralHardwareInit();
+		com.Init();
 		encodersIn.Init();
 		encoderOut.Init();
 	}
@@ -69,6 +75,8 @@ public:
 			clock2 = 0;
 			processSynch = true;
 		}
+
+		com.PeriodicUpdate();
 	}
 
 	void Run()
