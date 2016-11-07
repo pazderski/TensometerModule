@@ -5,8 +5,12 @@
 #include "stm32f10x.h"
 #include "led_interface.h"
 #include "encoder_interface.h"
+<<<<<<< HEAD
+#include "ad7730_device.h"
+=======
 #include "uart_communication_interface.h"
 
+>>>>>>> 4df5d07504d4971fb586c658dc130d99103244a0
 #define CPU_CLK	((uint32_t)72000000)
 
 class App
@@ -16,7 +20,7 @@ class App
 	volatile uint32_t mainClock;
 	volatile uint16_t clock1;
 	volatile uint16_t clock2;
-
+	volatile uint16_t Data;
 	volatile bool processSynch;
 
 	// periods [ms]
@@ -28,6 +32,7 @@ public:
 	UartCommunicationInterface com;
 	InputEncoders encodersIn;
 	OutputEncoder encoderOut;
+	Tensometer Tensometer1;
 
 	App()
 	{
@@ -56,6 +61,7 @@ public:
 		com.Init();
 		encodersIn.Init();
 		encoderOut.Init();
+		Tensometer1.Init();
 	}
 
 	void PeriodicUpdate()
@@ -83,10 +89,11 @@ public:
 	{
 		while(1)
 		{
-			encodersIn.ReadCounters();
-			__disable_irq();
-			encoderOut.SetOutput(encodersIn.state);
-			__enable_irq();
+			Data=Tensometer1.WriteReadBlock(0x05);
+			//encodersIn.ReadCounters();
+			//__disable_irq();
+			//encoderOut.SetOutput(encodersIn.state);
+			//__enable_irq();
 
 			if (encodersIn.direction == 1)
 				Led::Led2() = 1;
