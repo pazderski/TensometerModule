@@ -5,12 +5,9 @@
 #include "stm32f10x.h"
 #include "led_interface.h"
 #include "encoder_interface.h"
-<<<<<<< HEAD
 #include "ad7730_device.h"
-=======
 #include "uart_communication_interface.h"
 
->>>>>>> 4df5d07504d4971fb586c658dc130d99103244a0
 #define CPU_CLK	((uint32_t)72000000)
 
 class App

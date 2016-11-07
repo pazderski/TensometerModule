@@ -1,13 +1,13 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <history>
    <processor signature="4.9.3 -mcpu=cortex-m3 -mthumb -g -Map=Tensometer.map -O3 --gc-sections -lm -lgcc -lc -lrdimon -lstdc++ -LD:\tools\arm\CooCox\CoIDE\configuration\ProgramData\Tensometer -TD:\tools\arm\CooCox\CoIDE\configuration\ProgramData\Tensometer/arm-gcc-link.ld -g">
-      <target file="Tensometer.elf" lastModified="157fdc076d1">
-         <source file="..\obj\uart_communication_interface.o" lastModified="157fdc06ead"/>
-         <source file="..\obj\system_stm32f10x.o" lastModified="157fdc0700e"/>
-         <source file="..\obj\common.o" lastModified="157fdc0713b"/>
-         <source file="..\obj\startup_stm32f10x_md.o" lastModified="157fdc0722e"/>
-         <source file="..\obj\main.o" lastModified="157fdc07377"/>
-         <source file="..\obj\encoder_interface.o" lastModified="157fdc0747a"/>
+      <target file="Tensometer.elf" lastModified="15840a84566">
+         <source file="..\obj\uart_communication_interface.o" lastModified="15840a83adc"/>
+         <source file="..\obj\system_stm32f10x.o" lastModified="15840a83cfe"/>
+         <source file="..\obj\common.o" lastModified="15840a83e39"/>
+         <source file="..\obj\startup_stm32f10x_md.o" lastModified="15840a83f0e"/>
+         <source file="..\obj\main.o" lastModified="15840a84036"/>
+         <source file="..\obj\encoder_interface.o" lastModified="15840a8411b"/>
       </target>
    </processor>
 </history>

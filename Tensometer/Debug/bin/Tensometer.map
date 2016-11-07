@@ -137,27 +137,26 @@ Discarded input sections
  .text          0x00000000        0x0 ..\obj\encoder_interface.o
  .data          0x00000000        0x0 ..\obj\encoder_interface.o
  .bss           0x00000000        0x0 ..\obj\encoder_interface.o
+ .rodata        0x00000000        0x8 ..\obj\encoder_interface.o
+ .debug_info    0x00000000      0x1a8 ..\obj\encoder_interface.o
+ .debug_abbrev  0x00000000      0x119 ..\obj\encoder_interface.o
+ .debug_aranges
+                0x00000000       0x18 ..\obj\encoder_interface.o
+ .debug_line    0x00000000      0x21b ..\obj\encoder_interface.o
+ .debug_str     0x00000000      0x2c4 ..\obj\encoder_interface.o
+ .comment       0x00000000       0x71 ..\obj\encoder_interface.o
+ .ARM.attributes
+                0x00000000       0x33 ..\obj\encoder_interface.o
  .data          0x00000000        0x0 d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m\libgcc.a(unwind-arm.o)
  .bss           0x00000000        0x0 d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m\libgcc.a(unwind-arm.o)
  .ARM.extab     0x00000000        0x0 d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m\libgcc.a(unwind-arm.o)
- .debug_frame   0x00000000      0x300 d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m\libgcc.a(unwind-arm.o)
- .ARM.attributes
-                0x00000000       0x2d d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m\libgcc.a(unwind-arm.o)
  .data          0x00000000        0x0 d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m\libgcc.a(libunwind.o)
  .bss           0x00000000        0x0 d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m\libgcc.a(libunwind.o)
- .ARM.attributes
-                0x00000000       0x1d d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m\libgcc.a(libunwind.o)
  .data          0x00000000        0x0 d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m\libgcc.a(pr-support.o)
  .bss           0x00000000        0x0 d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m\libgcc.a(pr-support.o)
- .debug_frame   0x00000000      0x104 d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m\libgcc.a(pr-support.o)
- .ARM.attributes
-                0x00000000       0x2d d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m\libgcc.a(pr-support.o)
  .text          0x00000000        0x0 d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libc.a(lib_a-abort.o)
  .data          0x00000000        0x0 d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libc.a(lib_a-abort.o)
  .bss           0x00000000        0x0 d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libc.a(lib_a-abort.o)
- .debug_frame   0x00000000       0x28 d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libc.a(lib_a-abort.o)
- .ARM.attributes
-                0x00000000       0x2d d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libc.a(lib_a-abort.o)
  .text          0x00000000        0x0 d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libc.a(lib_a-exit.o)
  .data          0x00000000        0x0 d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libc.a(lib_a-exit.o)
  .bss           0x00000000        0x0 d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libc.a(lib_a-exit.o)
@@ -199,15 +198,9 @@ Discarded input sections
                 0x00000000        0xc d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libc.a(lib_a-signal.o)
  .text.__sigtramp
                 0x00000000       0x10 d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libc.a(lib_a-signal.o)
- .debug_frame   0x00000000       0xe4 d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libc.a(lib_a-signal.o)
- .ARM.attributes
-                0x00000000       0x2d d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libc.a(lib_a-signal.o)
  .text          0x00000000        0x0 d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libc.a(lib_a-signalr.o)
  .data          0x00000000        0x0 d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libc.a(lib_a-signalr.o)
  .bss           0x00000000        0x0 d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libc.a(lib_a-signalr.o)
- .debug_frame   0x00000000       0x3c d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libc.a(lib_a-signalr.o)
- .ARM.attributes
-                0x00000000       0x2d d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libc.a(lib_a-signalr.o)
  .text          0x00000000        0x0 d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libc.a(lib_a-__call_atexit.o)
  .data          0x00000000        0x0 d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libc.a(lib_a-__call_atexit.o)
  .bss           0x00000000        0x0 d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libc.a(lib_a-__call_atexit.o)
@@ -258,9 +251,6 @@ Discarded input sections
                 0x00000000       0x1c d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libc.a(lib_a-reent.o)
  .text._reclaim_reent
                 0x00000000       0x88 d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libc.a(lib_a-reent.o)
- .debug_frame   0x00000000       0x58 d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libc.a(lib_a-reent.o)
- .ARM.attributes
-                0x00000000       0x2d d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libc.a(lib_a-reent.o)
  .text          0x00000000        0x0 d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libc.a(lib_a-sbrkr.o)
  .data          0x00000000        0x0 d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libc.a(lib_a-sbrkr.o)
  .bss           0x00000000        0x0 d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libc.a(lib_a-sbrkr.o)
@@ -330,21 +320,12 @@ Discarded input sections
                 0x00000000        0x4 d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\librdimon.a(rdimon-syscalls.o)
  .bss.openfiles
                 0x00000000       0xa0 d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\librdimon.a(rdimon-syscalls.o)
- .debug_frame   0x00000000      0x364 d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\librdimon.a(rdimon-syscalls.o)
- .ARM.attributes
-                0x00000000       0x2d d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\librdimon.a(rdimon-syscalls.o)
  .text          0x00000000        0x0 d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\librdimon.a(rdimon-_exit.o)
  .data          0x00000000        0x0 d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\librdimon.a(rdimon-_exit.o)
  .bss           0x00000000        0x0 d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\librdimon.a(rdimon-_exit.o)
- .debug_frame   0x00000000       0x20 d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\librdimon.a(rdimon-_exit.o)
- .ARM.attributes
-                0x00000000       0x2d d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\librdimon.a(rdimon-_exit.o)
  .text          0x00000000        0x0 d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\librdimon.a(rdimon-_kill.o)
  .data          0x00000000        0x0 d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\librdimon.a(rdimon-_kill.o)
  .bss           0x00000000        0x0 d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\librdimon.a(rdimon-_kill.o)
- .debug_frame   0x00000000       0x2c d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\librdimon.a(rdimon-_kill.o)
- .ARM.attributes
-                0x00000000       0x2d d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\librdimon.a(rdimon-_kill.o)
  .text          0x00000000        0x0 d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libg.a(lib_a-errno.o)
  .data          0x00000000        0x0 d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libg.a(lib_a-errno.o)
  .bss           0x00000000        0x0 d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libg.a(lib_a-errno.o)
@@ -487,7 +468,7 @@ LOAD d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/armv
 LOAD d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m/crt0.o
                 0x20005000                _eram = 0x20005000
 
-.text           0x08000000     0x1910
+.text           0x08000000     0x198c
  *(.isr_vector)
  .isr_vector    0x08000000      0x10c ..\obj\startup_stm32f10x_md.o
                 0x08000000                g_pfnVectors
@@ -566,95 +547,95 @@ LOAD d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/../.
                 0x0800049c       0x4c ..\obj\startup_stm32f10x_md.o
                 0x0800049c                Default_Reset_Handler
                 0x0800049c                Reset_Handler
- .text._ZN3App3RunEv
-                0x080004e8       0xa4 ..\obj\main.o
-                0x080004e8                App::Run()
+ .text._ZN3App4InitEv
+                0x080004e8      0x1b8 ..\obj\main.o
+                0x080004e8                App::Init()
  .text.startup.main
-                0x0800058c      0x134 ..\obj\main.o
-                0x0800058c                main
- .text          0x080006c0      0xa54 d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m\libgcc.a(unwind-arm.o)
-                0x080009a0                _Unwind_GetCFA
-                0x080009a4                __gnu_Unwind_RaiseException
-                0x08000a04                __gnu_Unwind_ForcedUnwind
-                0x08000a18                __gnu_Unwind_Resume
-                0x08000a5c                __gnu_Unwind_Resume_or_Rethrow
-                0x08000a70                _Unwind_Complete
-                0x08000a74                _Unwind_DeleteException
-                0x08000a80                _Unwind_VRS_Get
-                0x08000ad0                _Unwind_VRS_Set
-                0x08000b20                __gnu_Unwind_Backtrace
-                0x08000e64                __aeabi_unwind_cpp_pr0
-                0x08000e68                __aeabi_unwind_cpp_pr1
-                0x08000e6c                __aeabi_unwind_cpp_pr2
-                0x08000e70                _Unwind_VRS_Pop
- .text          0x08001114      0x1ac d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m\libgcc.a(libunwind.o)
-                0x08001114                __restore_core_regs
-                0x08001114                restore_core_regs
-                0x0800112c                __gnu_Unwind_Restore_VFP
-                0x08001134                __gnu_Unwind_Save_VFP
-                0x0800113c                __gnu_Unwind_Restore_VFP_D
-                0x08001144                __gnu_Unwind_Save_VFP_D
-                0x0800114c                __gnu_Unwind_Restore_VFP_D_16_to_31
-                0x08001154                __gnu_Unwind_Save_VFP_D_16_to_31
-                0x0800115c                __gnu_Unwind_Restore_WMMXD
-                0x080011a0                __gnu_Unwind_Save_WMMXD
-                0x080011e4                __gnu_Unwind_Restore_WMMXC
-                0x080011f8                __gnu_Unwind_Save_WMMXC
-                0x0800120c                ___Unwind_RaiseException
-                0x0800120c                _Unwind_RaiseException
-                0x08001230                _Unwind_Resume
-                0x08001230                ___Unwind_Resume
-                0x08001254                _Unwind_Resume_or_Rethrow
-                0x08001254                ___Unwind_Resume_or_Rethrow
-                0x08001278                _Unwind_ForcedUnwind
-                0x08001278                ___Unwind_ForcedUnwind
-                0x0800129c                ___Unwind_Backtrace
-                0x0800129c                _Unwind_Backtrace
- .text          0x080012c0      0x37c d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m\libgcc.a(pr-support.o)
-                0x08001318                __gnu_unwind_execute
-                0x080015e4                __gnu_unwind_frame
-                0x0800160c                _Unwind_GetRegionStart
-                0x08001618                _Unwind_GetLanguageSpecificData
-                0x0800162c                _Unwind_GetDataRelBase
-                0x08001634                _Unwind_GetTextRelBase
- .text.abort    0x0800163c       0x10 d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libc.a(lib_a-abort.o)
-                0x0800163c                abort
- .text          0x0800164c       0xec d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libc.a(lib_a-memcpy.o)
-                0x0800164c                memcpy
+                0x080006a0       0xa4 ..\obj\main.o
+                0x080006a0                main
+ .text          0x08000744      0xa54 d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m\libgcc.a(unwind-arm.o)
+                0x08000a24                _Unwind_GetCFA
+                0x08000a28                __gnu_Unwind_RaiseException
+                0x08000a88                __gnu_Unwind_ForcedUnwind
+                0x08000a9c                __gnu_Unwind_Resume
+                0x08000ae0                __gnu_Unwind_Resume_or_Rethrow
+                0x08000af4                _Unwind_Complete
+                0x08000af8                _Unwind_DeleteException
+                0x08000b04                _Unwind_VRS_Get
+                0x08000b54                _Unwind_VRS_Set
+                0x08000ba4                __gnu_Unwind_Backtrace
+                0x08000ee8                __aeabi_unwind_cpp_pr0
+                0x08000eec                __aeabi_unwind_cpp_pr1
+                0x08000ef0                __aeabi_unwind_cpp_pr2
+                0x08000ef4                _Unwind_VRS_Pop
+ .text          0x08001198      0x1ac d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m\libgcc.a(libunwind.o)
+                0x08001198                __restore_core_regs
+                0x08001198                restore_core_regs
+                0x080011b0                __gnu_Unwind_Restore_VFP
+                0x080011b8                __gnu_Unwind_Save_VFP
+                0x080011c0                __gnu_Unwind_Restore_VFP_D
+                0x080011c8                __gnu_Unwind_Save_VFP_D
+                0x080011d0                __gnu_Unwind_Restore_VFP_D_16_to_31
+                0x080011d8                __gnu_Unwind_Save_VFP_D_16_to_31
+                0x080011e0                __gnu_Unwind_Restore_WMMXD
+                0x08001224                __gnu_Unwind_Save_WMMXD
+                0x08001268                __gnu_Unwind_Restore_WMMXC
+                0x0800127c                __gnu_Unwind_Save_WMMXC
+                0x08001290                ___Unwind_RaiseException
+                0x08001290                _Unwind_RaiseException
+                0x080012b4                _Unwind_Resume
+                0x080012b4                ___Unwind_Resume
+                0x080012d8                _Unwind_Resume_or_Rethrow
+                0x080012d8                ___Unwind_Resume_or_Rethrow
+                0x080012fc                _Unwind_ForcedUnwind
+                0x080012fc                ___Unwind_ForcedUnwind
+                0x08001320                ___Unwind_Backtrace
+                0x08001320                _Unwind_Backtrace
+ .text          0x08001344      0x37c d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m\libgcc.a(pr-support.o)
+                0x0800139c                __gnu_unwind_execute
+                0x08001668                __gnu_unwind_frame
+                0x08001690                _Unwind_GetRegionStart
+                0x0800169c                _Unwind_GetLanguageSpecificData
+                0x080016b0                _Unwind_GetDataRelBase
+                0x080016b8                _Unwind_GetTextRelBase
+ .text.abort    0x080016c0       0x10 d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libc.a(lib_a-abort.o)
+                0x080016c0                abort
+ .text          0x080016d0       0xec d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libc.a(lib_a-memcpy.o)
+                0x080016d0                memcpy
  .text._raise_r
-                0x08001738       0x58 d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libc.a(lib_a-signal.o)
-                0x08001738                _raise_r
- .text.raise    0x08001790       0x10 d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libc.a(lib_a-signal.o)
-                0x08001790                raise
- .text._kill_r  0x080017a0       0x28 d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libc.a(lib_a-signalr.o)
-                0x080017a0                _kill_r
+                0x080017bc       0x58 d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libc.a(lib_a-signal.o)
+                0x080017bc                _raise_r
+ .text.raise    0x08001814       0x10 d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libc.a(lib_a-signal.o)
+                0x08001814                raise
+ .text._kill_r  0x08001824       0x28 d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libc.a(lib_a-signalr.o)
+                0x08001824                _kill_r
  .text._getpid_r
-                0x080017c8        0x4 d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libc.a(lib_a-signalr.o)
-                0x080017c8                _getpid_r
+                0x0800184c        0x4 d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libc.a(lib_a-signalr.o)
+                0x0800184c                _getpid_r
  .text.startup.register_fini
-                0x080017cc       0x14 d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libc.a(lib_a-__call_atexit.o)
- .text.atexit   0x080017e0        0xc d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libc.a(lib_a-atexit.o)
-                0x080017e0                atexit
+                0x08001850       0x14 d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libc.a(lib_a-__call_atexit.o)
+ .text.atexit   0x08001864        0xc d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libc.a(lib_a-atexit.o)
+                0x08001864                atexit
  .text.__libc_fini_array
-                0x080017ec       0x2c d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libc.a(lib_a-fini.o)
-                0x080017ec                __libc_fini_array
+                0x08001870       0x2c d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libc.a(lib_a-fini.o)
+                0x08001870                __libc_fini_array
  .text.__register_exitproc
-                0x08001818       0xa4 d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libc.a(lib_a-__atexit.o)
-                0x08001818                __register_exitproc
- .text._getpid  0x080018bc        0x4 d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\librdimon.a(rdimon-syscalls.o)
-                0x080018bc                _getpid
- .text._exit    0x080018c0        0x8 d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\librdimon.a(rdimon-_exit.o)
-                0x080018c0                _exit
- .text._kill    0x080018c8       0x20 d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\librdimon.a(rdimon-_kill.o)
-                0x080018c8                _kill
+                0x0800189c       0xa4 d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libc.a(lib_a-__atexit.o)
+                0x0800189c                __register_exitproc
+ .text._getpid  0x08001940        0x4 d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\librdimon.a(rdimon-syscalls.o)
+                0x08001940                _getpid
+ .text._exit    0x08001944        0x8 d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\librdimon.a(rdimon-_exit.o)
+                0x08001944                _exit
+ .text._kill    0x0800194c       0x20 d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\librdimon.a(rdimon-_kill.o)
+                0x0800194c                _kill
  *(.init)
- .init          0x080018e8        0x4 d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m/crti.o
-                0x080018e8                _init
- .init          0x080018ec        0x8 d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m/crtn.o
+ .init          0x0800196c        0x4 d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m/crti.o
+                0x0800196c                _init
+ .init          0x08001970        0x8 d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m/crtn.o
  *(.fini)
- .fini          0x080018f4        0x4 d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m/crti.o
-                0x080018f4                _fini
- .fini          0x080018f8        0x8 d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m/crtn.o
+ .fini          0x08001978        0x4 d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m/crti.o
+                0x08001978                _fini
+ .fini          0x0800197c        0x8 d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m/crtn.o
  *crtbegin.o(.ctors)
  *crtbegin?.o(.ctors)
  *(EXCLUDE_FILE(*crtend.o *crtend?.o) .ctors)
@@ -666,73 +647,70 @@ LOAD d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/../.
  *(SORT(.dtors.*))
  *(.dtors)
  *(.rodata*)
- .rodata        0x08001900        0x8 ..\obj\encoder_interface.o
-                0x08001900                OutputEncoder::outputMap
  .rodata.str1.4
-                0x08001908        0x4 d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libc.a(lib_a-impure.o)
+                0x08001984        0x4 d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libc.a(lib_a-impure.o)
  .rodata._global_impure_ptr
-                0x0800190c        0x4 d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libc.a(lib_a-impure.o)
-                0x0800190c                _global_impure_ptr
+                0x08001988        0x4 d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libc.a(lib_a-impure.o)
+                0x08001988                _global_impure_ptr
  *(.eh_fram e*)
 
-.glue_7         0x08001910        0x0
+.glue_7         0x0800198c        0x0
  .glue_7        0x00000000        0x0 linker stubs
 
-.glue_7t        0x08001910        0x0
+.glue_7t        0x0800198c        0x0
  .glue_7t       0x00000000        0x0 linker stubs
 
-.vfp11_veneer   0x08001910        0x0
+.vfp11_veneer   0x0800198c        0x0
  .vfp11_veneer  0x00000000        0x0 linker stubs
 
-.v4_bx          0x08001910        0x0
+.v4_bx          0x0800198c        0x0
  .v4_bx         0x00000000        0x0 linker stubs
 
-.iplt           0x08001910        0x0
+.iplt           0x0800198c        0x0
  .iplt          0x00000000        0x0 d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m/crtbegin.o
 
-.ARM.extab      0x08001910       0x18
+.ARM.extab      0x0800198c       0x18
  *(.ARM.extab* .gnu.linkonce.armextab.*)
- .ARM.extab.text._ZN3App3RunEv
-                0x08001910        0x0 ..\obj\main.o
- .ARM.extab     0x08001910       0x18 d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m\libgcc.a(pr-support.o)
-                0x08001928                __exidx_start = .
+ .ARM.extab.text._ZN3App4InitEv
+                0x0800198c        0x0 ..\obj\main.o
+ .ARM.extab     0x0800198c       0x18 d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m\libgcc.a(pr-support.o)
+                0x080019a4                __exidx_start = .
 
-.eh_frame       0x08001928        0x0
- .eh_frame      0x08001928        0x0 d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m/crtbegin.o
+.eh_frame       0x080019a4        0x0
+ .eh_frame      0x080019a4        0x0 d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m/crtbegin.o
 
-.ARM.exidx      0x08001928       0xc8
+.ARM.exidx      0x080019a4       0xd0
  *(.ARM.exidx* .gnu.linkonce.armexidx.*)
  .ARM.exidx.text._ZN26UartCommunicationInterface4InitEv
-                0x08001928        0x8 ..\obj\uart_communication_interface.o
+                0x080019a4        0x8 ..\obj\uart_communication_interface.o
  .ARM.exidx.text._ZN26UartCommunicationInterface14PeriodicUpdateEv
-                0x08001930        0x0 ..\obj\uart_communication_interface.o
+                0x080019ac        0x0 ..\obj\uart_communication_interface.o
                                   0x8 (size before relaxing)
  .ARM.exidx.text.DMA1_Channel7_IRQHandler
-                0x08001930        0x0 ..\obj\common.o
+                0x080019ac        0x0 ..\obj\common.o
                                   0x8 (size before relaxing)
  .ARM.exidx.text.USART2_IRQHandler
-                0x08001930        0x0 ..\obj\common.o
+                0x080019ac        0x0 ..\obj\common.o
                                   0x8 (size before relaxing)
  .ARM.exidx.text.SysTick_Handler
-                0x08001930        0x0 ..\obj\common.o
+                0x080019ac        0x0 ..\obj\common.o
                                   0x8 (size before relaxing)
- .ARM.exidx.text._ZN3App3RunEv
-                0x08001930        0x0 ..\obj\main.o
-                                  0x8 (size before relaxing)
+ .ARM.exidx.text._ZN3App4InitEv
+                0x080019ac        0x8 ..\obj\main.o
  .ARM.exidx.text.startup.main
-                0x08001930        0x8 ..\obj\main.o
- .ARM.exidx     0x08001938       0x80 d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m\libgcc.a(unwind-arm.o)
+                0x080019b4        0x8 ..\obj\main.o
+ .ARM.exidx     0x080019bc       0x80 d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m\libgcc.a(unwind-arm.o)
                                  0xd8 (size before relaxing)
- .ARM.exidx     0x080019b8       0x38 d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m\libgcc.a(pr-support.o)
+ .ARM.exidx     0x08001a3c       0x38 d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m\libgcc.a(pr-support.o)
                                  0x48 (size before relaxing)
-                0x080019f0                __exidx_end = .
-                0x080019f0                __etext = .
-                0x080019f0                _sidata = __etext
+                0x08001a74                __exidx_end = .
+                0x08001a74                __etext = .
+                0x08001a74                _sidata = __etext
 
-.rel.dyn        0x080019f0        0x0
+.rel.dyn        0x08001a74        0x0
  .rel.iplt      0x00000000        0x0 d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m/crtbegin.o
 
-.data           0x20000000      0x43c load address 0x080019f0
+.data           0x20000000      0x43c load address 0x08001a74
                 0x20000000                __data_start__ = .
                 0x20000000                _sdata = __data_start__
  *(vtable)
@@ -767,10 +745,10 @@ LOAD d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/../.
                 0x2000043c                __data_end__ = .
                 0x2000043c                _edata = __data_end__
 
-.igot.plt       0x2000043c        0x0 load address 0x08001e2c
+.igot.plt       0x2000043c        0x0 load address 0x08001eb0
  .igot.plt      0x00000000        0x0 d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m/crtbegin.o
 
-.bss            0x2000043c       0x24 load address 0x08001e2c
+.bss            0x2000043c       0x24 load address 0x08001eb0
                 0x2000043c                . = ALIGN (0x4)
                 0x2000043c                __bss_start__ = .
                 0x2000043c                _sbss = __bss_start__
@@ -792,7 +770,7 @@ LOAD d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/../.
  *(.heap*)
                 0x20000460                __HeapLimit = .
 
-.co_stack       0x20000460      0x400 load address 0x08001e50
+.co_stack       0x20000460      0x400 load address 0x08001ed4
                 0x20000460                . = ALIGN (0x8)
  *(.co_stack .co_stack.*)
  .co_stack      0x20000460      0x400 ..\obj\startup_stm32f10x_md.o
@@ -838,23 +816,41 @@ OUTPUT(Tensometer.elf elf32-littlearm)
  .ARM.attributes
                 0x00000116       0x33 ..\obj\main.o
  .ARM.attributes
-                0x00000149       0x33 ..\obj\encoder_interface.o
+                0x00000149       0x2d d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m\libgcc.a(unwind-arm.o)
  .ARM.attributes
-                0x0000017c       0x2d d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libc.a(lib_a-impure.o)
+                0x00000176       0x1d d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m\libgcc.a(libunwind.o)
  .ARM.attributes
-                0x000001a9       0x1b d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libc.a(lib_a-memcpy.o)
+                0x00000193       0x2d d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m\libgcc.a(pr-support.o)
  .ARM.attributes
-                0x000001c4       0x2d d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libc.a(lib_a-__call_atexit.o)
+                0x000001c0       0x2d d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libc.a(lib_a-abort.o)
  .ARM.attributes
-                0x000001f1       0x2d d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libc.a(lib_a-atexit.o)
+                0x000001ed       0x2d d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libc.a(lib_a-impure.o)
  .ARM.attributes
-                0x0000021e       0x2d d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libc.a(lib_a-fini.o)
+                0x0000021a       0x1b d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libc.a(lib_a-memcpy.o)
  .ARM.attributes
-                0x0000024b       0x2d d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libc.a(lib_a-__atexit.o)
+                0x00000235       0x2d d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libc.a(lib_a-signal.o)
  .ARM.attributes
-                0x00000278       0x2d d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m/crtend.o
+                0x00000262       0x2d d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libc.a(lib_a-signalr.o)
  .ARM.attributes
-                0x000002a5       0x1d d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m/crtn.o
+                0x0000028f       0x2d d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libc.a(lib_a-__call_atexit.o)
+ .ARM.attributes
+                0x000002bc       0x2d d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libc.a(lib_a-atexit.o)
+ .ARM.attributes
+                0x000002e9       0x2d d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libc.a(lib_a-fini.o)
+ .ARM.attributes
+                0x00000316       0x2d d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libc.a(lib_a-reent.o)
+ .ARM.attributes
+                0x00000343       0x2d d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libc.a(lib_a-__atexit.o)
+ .ARM.attributes
+                0x00000370       0x2d d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\librdimon.a(rdimon-syscalls.o)
+ .ARM.attributes
+                0x0000039d       0x2d d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\librdimon.a(rdimon-_exit.o)
+ .ARM.attributes
+                0x000003ca       0x2d d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\librdimon.a(rdimon-_kill.o)
+ .ARM.attributes
+                0x000003f7       0x2d d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m/crtend.o
+ .ARM.attributes
+                0x00000424       0x1d d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m/crtn.o
 
 .comment        0x00000000       0x70
  .comment       0x00000000       0x70 ..\obj\uart_communication_interface.o
@@ -863,31 +859,28 @@ OUTPUT(Tensometer.elf elf32-littlearm)
  .comment       0x00000000       0x71 ..\obj\common.o
  .comment       0x00000000       0x71 ..\obj\startup_stm32f10x_md.o
  .comment       0x00000000       0x71 ..\obj\main.o
- .comment       0x00000000       0x71 ..\obj\encoder_interface.o
 
-.debug_info     0x00000000     0x26e5
+.debug_info     0x00000000     0x2d08
  .debug_info    0x00000000      0x689 ..\obj\uart_communication_interface.o
  .debug_info    0x00000689      0x48b ..\obj\system_stm32f10x.o
- .debug_info    0x00000b14      0x82b ..\obj\common.o
- .debug_info    0x0000133f      0x13d ..\obj\startup_stm32f10x_md.o
- .debug_info    0x0000147c     0x10c1 ..\obj\main.o
- .debug_info    0x0000253d      0x1a8 ..\obj\encoder_interface.o
+ .debug_info    0x00000b14      0xb58 ..\obj\common.o
+ .debug_info    0x0000166c      0x13d ..\obj\startup_stm32f10x_md.o
+ .debug_info    0x000017a9     0x155f ..\obj\main.o
 
-.debug_abbrev   0x00000000      0xce0
+.debug_abbrev   0x00000000      0xc58
  .debug_abbrev  0x00000000      0x222 ..\obj\uart_communication_interface.o
  .debug_abbrev  0x00000222      0x16c ..\obj\system_stm32f10x.o
- .debug_abbrev  0x0000038e      0x30c ..\obj\common.o
- .debug_abbrev  0x0000069a      0x113 ..\obj\startup_stm32f10x_md.o
- .debug_abbrev  0x000007ad      0x41a ..\obj\main.o
- .debug_abbrev  0x00000bc7      0x119 ..\obj\encoder_interface.o
+ .debug_abbrev  0x0000038e      0x362 ..\obj\common.o
+ .debug_abbrev  0x000006f0      0x113 ..\obj\startup_stm32f10x_md.o
+ .debug_abbrev  0x00000803      0x455 ..\obj\main.o
 
-.debug_loc      0x00000000      0x246
+.debug_loc      0x00000000      0x266
  .debug_loc     0x00000000       0x7e ..\obj\uart_communication_interface.o
  .debug_loc     0x0000007e       0xbc ..\obj\system_stm32f10x.o
  .debug_loc     0x0000013a       0x40 ..\obj\common.o
- .debug_loc     0x0000017a       0xcc ..\obj\main.o
+ .debug_loc     0x0000017a       0xec ..\obj\main.o
 
-.debug_aranges  0x00000000      0x100
+.debug_aranges  0x00000000       0xe8
  .debug_aranges
                 0x00000000       0x38 ..\obj\uart_communication_interface.o
  .debug_aranges
@@ -898,45 +891,49 @@ OUTPUT(Tensometer.elf elf32-littlearm)
                 0x00000098       0x28 ..\obj\startup_stm32f10x_md.o
  .debug_aranges
                 0x000000c0       0x28 ..\obj\main.o
- .debug_aranges
-                0x000000e8       0x18 ..\obj\encoder_interface.o
 
-.debug_ranges   0x00000000      0x2b8
+.debug_ranges   0x00000000      0x308
  .debug_ranges  0x00000000       0x78 ..\obj\uart_communication_interface.o
  .debug_ranges  0x00000078       0x38 ..\obj\system_stm32f10x.o
  .debug_ranges  0x000000b0       0x48 ..\obj\common.o
  .debug_ranges  0x000000f8       0x18 ..\obj\startup_stm32f10x_md.o
- .debug_ranges  0x00000110      0x1a8 ..\obj\main.o
+ .debug_ranges  0x00000110      0x1f8 ..\obj\main.o
 
-.debug_line     0x00000000      0xed5
+.debug_line     0x00000000      0xd40
  .debug_line    0x00000000      0x395 ..\obj\uart_communication_interface.o
  .debug_line    0x00000395      0x1fd ..\obj\system_stm32f10x.o
- .debug_line    0x00000592      0x2d0 ..\obj\common.o
- .debug_line    0x00000862       0xb5 ..\obj\startup_stm32f10x_md.o
- .debug_line    0x00000917      0x3a3 ..\obj\main.o
- .debug_line    0x00000cba      0x21b ..\obj\encoder_interface.o
+ .debug_line    0x00000592      0x2e3 ..\obj\common.o
+ .debug_line    0x00000875       0xb5 ..\obj\startup_stm32f10x_md.o
+ .debug_line    0x0000092a      0x416 ..\obj\main.o
 
-.debug_str      0x00000000      0xfd6
- .debug_str     0x00000000      0x4c9 ..\obj\uart_communication_interface.o
+.debug_str      0x00000000     0x1238
+ .debug_str     0x00000000      0x4c4 ..\obj\uart_communication_interface.o
                                 0x585 (size before relaxing)
- .debug_str     0x000004c9      0x1de ..\obj\system_stm32f10x.o
+ .debug_str     0x000004c4      0x1de ..\obj\system_stm32f10x.o
                                 0x307 (size before relaxing)
- .debug_str     0x000006a7      0x2e4 ..\obj\common.o
-                                0x781 (size before relaxing)
- .debug_str     0x0000098b       0xd5 ..\obj\startup_stm32f10x_md.o
+ .debug_str     0x000006a2      0x5f8 ..\obj\common.o
+                                0xaac (size before relaxing)
+ .debug_str     0x00000c9a       0xd5 ..\obj\startup_stm32f10x_md.o
                                 0x182 (size before relaxing)
- .debug_str     0x00000a60      0x4b6 ..\obj\main.o
-                                0xbfb (size before relaxing)
- .debug_str     0x00000f16       0xc0 ..\obj\encoder_interface.o
-                                0x2c4 (size before relaxing)
+ .debug_str     0x00000d6f      0x4c9 ..\obj\main.o
+                                0xf45 (size before relaxing)
 
-.debug_frame    0x00000000      0x2a8
+.debug_frame    0x00000000      0xc04
  .debug_frame   0x00000000       0xa8 ..\obj\uart_communication_interface.o
  .debug_frame   0x000000a8       0x44 ..\obj\system_stm32f10x.o
  .debug_frame   0x000000ec       0x58 ..\obj\common.o
  .debug_frame   0x00000144       0x3c ..\obj\startup_stm32f10x_md.o
- .debug_frame   0x00000180       0x50 ..\obj\main.o
- .debug_frame   0x000001d0       0x50 d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libc.a(lib_a-__call_atexit.o)
- .debug_frame   0x00000220       0x20 d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libc.a(lib_a-atexit.o)
- .debug_frame   0x00000240       0x34 d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libc.a(lib_a-fini.o)
- .debug_frame   0x00000274       0x34 d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libc.a(lib_a-__atexit.o)
+ .debug_frame   0x00000180       0x58 ..\obj\main.o
+ .debug_frame   0x000001d8      0x300 d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m\libgcc.a(unwind-arm.o)
+ .debug_frame   0x000004d8      0x104 d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m\libgcc.a(pr-support.o)
+ .debug_frame   0x000005dc       0x28 d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libc.a(lib_a-abort.o)
+ .debug_frame   0x00000604       0xe4 d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libc.a(lib_a-signal.o)
+ .debug_frame   0x000006e8       0x3c d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libc.a(lib_a-signalr.o)
+ .debug_frame   0x00000724       0x50 d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libc.a(lib_a-__call_atexit.o)
+ .debug_frame   0x00000774       0x20 d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libc.a(lib_a-atexit.o)
+ .debug_frame   0x00000794       0x34 d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libc.a(lib_a-fini.o)
+ .debug_frame   0x000007c8       0x58 d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libc.a(lib_a-reent.o)
+ .debug_frame   0x00000820       0x34 d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libc.a(lib_a-__atexit.o)
+ .debug_frame   0x00000854      0x364 d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\librdimon.a(rdimon-syscalls.o)
+ .debug_frame   0x00000bb8       0x20 d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\librdimon.a(rdimon-_exit.o)
+ .debug_frame   0x00000bd8       0x2c d:/tools/arm/gnu tools arm embedded/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\librdimon.a(rdimon-_kill.o)
