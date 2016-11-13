@@ -1,10 +1,11 @@
 #include "common.h"
 
 App * pApp;
+App app;
 
 int main(void)
 {
-	App app;
+
 	pApp = &app;
 	app.Init();
 	Led::Init();
