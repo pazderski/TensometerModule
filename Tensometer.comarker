@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <breakpoints>
 <breakpoint enabled="true" persistant="true" registered="true">
-<resource path="/Tensometer/cmsis_boot/startup/startup_stm32f10x_md.c" type="1"/>
-<marker lineNumber="214" type="org.eclipse.cdt.debug.core.cLineBreakpointMarker">
-<attrib name="message" value="Line breakpoint: startup_stm32f10x_md.c [line: 214]"/>
+<resource path="/Tensometer/include/common.h" type="1"/>
+<marker lineNumber="95" type="org.eclipse.cdt.debug.core.cLineBreakpointMarker">
+<attrib name="message" value="Line breakpoint: common.h [line: 95]"/>
 <attrib name="org.eclipse.cdt.debug.core.condition" value=""/>
 <attrib name="org.eclipse.debug.core.id" value="org.eclipse.cdt.debug.core"/>
-<attrib name="org.eclipse.cdt.debug.core.installCount" value="0"/>
-<attrib name="org.eclipse.cdt.debug.core.sourceHandle" value="E:\praca\dydaktyka\pracownia_problemowa\2016\TensometerModule\cmsis_boot\startup\startup_stm32f10x_md.c"/>
+<attrib name="org.eclipse.cdt.debug.core.installCount" value="1"/>
+<attrib name="org.eclipse.cdt.debug.core.sourceHandle" value="C:\student\pracownia2016\TensometerModule\include\common.h"/>
 <attrib name="org.eclipse.cdt.debug.core.breakpointType" value="0"/>
 <attrib name="org.eclipse.cdt.debug.core.ignoreCount" value="0"/>
 <attrib name="org.eclipse.debug.core.enabled" value="true"/>

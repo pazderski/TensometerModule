@@ -86,7 +86,7 @@ public:
 	{
 		while(1)
 		{
-			Data=Tensometer1.WriteReadBlock(0x05);
+			Data = Tensometer1.WriteReadBlock(0x17);
 			//encodersIn.ReadCounters();
 			//__disable_irq();
 			//encoderOut.SetOutput(encodersIn.state);
