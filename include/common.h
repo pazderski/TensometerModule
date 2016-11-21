@@ -18,6 +18,8 @@ class App
 	volatile uint16_t clock1;
 	volatile uint16_t clock2;
 	volatile uint16_t Data;
+	volatile uint16_t Data_write;
+	volatile uint16_t Data_read;
 	volatile bool processSynch;
 
 	// periods [ms]
@@ -84,9 +86,10 @@ public:
 
 	void Run()
 	{
+		Tensometer1.WriteReadStart();
 		while(1)
 		{
-			Data = Tensometer1.WriteReadBlock(0x17);
+			Data = Tensometer1.WriteReadBlock(0x0010);
 			//encodersIn.ReadCounters();
 			//__disable_irq();
 			//encoderOut.SetOutput(encodersIn.state);

@@ -40,7 +40,7 @@ class Tensometer
 
 		//SPI2
 		SPI2->CR1 = SPI_CR1_CPOL | SPI_CR1_MSTR | SPI_CR1_BR_2 | SPI_CR1_SSM | SPI_CR1_SSI  | SPI_CR1_DFF;
-		//W³¹czamy SPI1
+		//W³¹czamy SPI2
 		SPI2->CR1 |= SPI_CR1_SPE;
 
 	}
@@ -118,7 +118,7 @@ public:
 
 	void WriteReadStart()
 	{
-		// fsmState = STATUS;
+		//fsmState = STATUS;
 		SPI_CS() = 0; __NOP(); __NOP();
 		// rozkaz wysylany
 		SPI2->DR = 0x00;
