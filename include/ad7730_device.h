@@ -25,6 +25,11 @@ class Tensometer
 		return bitband_t m_BITBAND_PERIPH(&GPIOB->ODR, 12);
 	}
 
+	static volatile unsigned long & nRESET()
+	{
+			return bitband_t m_BITBAND_PERIPH(&GPIOB->ODR, 1);
+	}
+
 	void HardwareInit()
 	{
 		//Ustawienia PA4-7
@@ -33,15 +38,18 @@ class Tensometer
 		RCC->APB2ENR |= RCC_APB2ENR_IOPBEN;
 
 		//Zerujemy bity wyjsciowe
-		GPIOB->ODR&= ~(GPIO_ODR_ODR12 | GPIO_ODR_ODR13 | GPIO_ODR_ODR14 | GPIO_ODR_ODR15);
+		GPIOB->ODR&= ~(GPIO_ODR_ODR1 | GPIO_ODR_ODR12 | GPIO_ODR_ODR13 | GPIO_ODR_ODR14 | GPIO_ODR_ODR15);
 		// zerujemy rejestry PA4-7 Mode,CNF
+		GPIOB->CRL &= ~(GPIO_CRL_CNF1 | GPIO_CRL_MODE1);
 		GPIOB->CRH &= ~(GPIO_CRH_CNF12 | GPIO_CRH_CNF13 |GPIO_CRH_CNF14 | GPIO_CRH_CNF15 | GPIO_CRH_MODE12 | GPIO_CRH_MODE13 | GPIO_CRH_MODE14 | GPIO_CRH_MODE15);
+		GPIOB->CRL |= GPIO_CRL_MODE1_0;
 		GPIOB->CRH |= GPIO_CRH_MODE12_0 | GPIO_CRH_MODE13_0 | GPIO_CRH_MODE15_0 | GPIO_CRH_CNF13_1 |GPIO_CRH_CNF14_0 | GPIO_CRH_CNF15_1;
 
-		//SPI2
-		SPI2->CR1 = SPI_CR1_CPOL | SPI_CR1_MSTR | SPI_CR1_BR_2 | SPI_CR1_SSM | SPI_CR1_SSI  | SPI_CR1_DFF;
+		//SPI2 (8-bit mode)
+		SPI2->CR1 = SPI_CR1_CPOL | SPI_CR1_CPHA | SPI_CR1_MSTR | SPI_CR1_BR_2 | SPI_CR1_SSM | SPI_CR1_SSI;
 		//W³¹czamy SPI2
 		SPI2->CR1 |= SPI_CR1_SPE;
+		nRESET() = 1;
 
 	}
 
@@ -101,27 +109,35 @@ public:
 	volatile bool isDataReady;
 
 	// Wymiana danych na SPI z blokowaniem
-	uint16_t WriteReadBlock(uint16_t data)
+	uint8_t WriteReadContinue(uint8_t data)
 	{
-		SPI_CS() = 0;
 		__NOP(); __NOP();
 		while(!(SPI2->SR & SPI_SR_TXE)) {};
 		SPI2->DR = data;
 	    while(SPI2->SR & SPI_SR_BSY) {};
 	    while(!(SPI2->SR & SPI_SR_RXNE)) {};
-
-	    SPI_CS() = 1;
-	    __NOP(); __NOP();
 	    data = SPI2->DR;
 	    return data;
 	}
 
-	void WriteReadStart()
+	uint8_t WriteReadStart(uint8_t data)
 	{
 		//fsmState = STATUS;
 		SPI_CS() = 0; __NOP(); __NOP();
+		while(!(SPI2->SR & SPI_SR_TXE)) {};
 		// rozkaz wysylany
-		SPI2->DR = 0x00;
+		SPI2->DR = data;
+	    while(SPI2->SR & SPI_SR_BSY) {};
+	    while(!(SPI2->SR & SPI_SR_RXNE)) {};
+	    data = SPI2->DR;
+	    return data;
+
+	}
+
+	void Stop()
+	{
+		//fsmState = STATUS;
+		__NOP(); __NOP(); SPI_CS() = 1;
 	}
 
 	void Init()
@@ -134,7 +150,7 @@ public:
 		// ustawienie akcelerometru
 
 		// zezwolenie na obsluge przerwan od odbiornika SPI
-		SPI2->CR2 |= SPI_CR2_RXNEIE;
+		//SPI2->CR2 |= SPI_CR2_RXNEIE;
 	}
 
 	void Irq()

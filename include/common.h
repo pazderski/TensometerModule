@@ -31,7 +31,7 @@ public:
 	UartCommunicationInterface com;
 	InputEncoders encodersIn;
 	OutputEncoder encoderOut;
-	Tensometer Tensometer1;
+	Tensometer tensometer;
 
 	App()
 	{
@@ -60,7 +60,7 @@ public:
 		com.Init();
 		encodersIn.Init();
 		encoderOut.Init();
-		Tensometer1.Init();
+		tensometer.Init();
 	}
 
 	void PeriodicUpdate()
@@ -82,14 +82,19 @@ public:
 		}
 
 		com.PeriodicUpdate();
+
+		Data = tensometer.WriteReadStart(0x10);
+		Data = tensometer.WriteReadContinue(0x00);
+		tensometer.Stop();
+
 	}
 
 	void Run()
 	{
-		Tensometer1.WriteReadStart();
+		//tensometer.WriteReadStart();
 		while(1)
 		{
-			Data = Tensometer1.WriteReadBlock(0x0010);
+
 			//encodersIn.ReadCounters();
 			//__disable_irq();
 			//encoderOut.SetOutput(encodersIn.state);
