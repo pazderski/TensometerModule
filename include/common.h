@@ -18,7 +18,7 @@ class App
 	volatile uint16_t clock1;
 	volatile uint16_t clock2;
 	volatile uint16_t Data;
-	volatile uint16_t Data_write;
+	volatile uint8_t Data_write;
 	volatile uint16_t Data_read;
 	volatile bool processSynch;
 
@@ -83,10 +83,13 @@ public:
 
 		com.PeriodicUpdate();
 
-		Data = tensometer.WriteReadStart(0x10);
-		Data = tensometer.WriteReadContinue(0x00);
+		Data = tensometer.WriteReadStart(0x04);
+		Data_write = tensometer.WriteReadContinue(0x24);
 		tensometer.Stop();
-
+		Data = tensometer.WriteReadStart(0x14);
+		Data_read = tensometer.WriteReadContinue(0x00);
+		tensometer.Stop();
+		Data_read=Data_read;
 	}
 
 	void Run()
