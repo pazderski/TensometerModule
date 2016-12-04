@@ -5,6 +5,15 @@
 class Tensometer
 {
 
+	uint8_t cmdTxBuf[8];
+	uint8_t cmdRxBuf[8];
+	volatile uint8_t cmdSize;
+	volatile uint8_t txIndex;
+	volatile uint8_t rxIndex;
+	volatile bool txIrqEnable;
+	volatile bool rxIrqEnable;
+
+	//volatile uint8_t
 
 	// Definicje stanow automatu do obslugi akcelerometru
 	enum FsmState
@@ -27,8 +36,9 @@ class Tensometer
 
 	static volatile unsigned long & nRESET()
 	{
-			return bitband_t m_BITBAND_PERIPH(&GPIOB->ODR, 1);
+		return bitband_t m_BITBAND_PERIPH(&GPIOB->ODR, 1);
 	}
+
 
 	void HardwareInit()
 	{
@@ -53,60 +63,86 @@ class Tensometer
 
 	}
 
+	void SpiTxIrqEnable()
+	{
+		SPI2->CR2 |= SPI_CR2_TXEIE;
+		txIrqEnable = true;
+	}
+
+	void SpiTxIrqDisable()
+	{
+		SPI2->CR2 &= SPI_CR2_TXEIE;
+		txIrqEnable = false;
+	}
+
+	void SpiRxIrqEnable()
+	{
+		SPI2->CR2 |= SPI_CR2_RXNEIE;
+	}
+
+
 public:
 
 	// Communication register
-		static uint16_t const COMM_REG_RS0 = 0x01;
-		static uint16_t const COMM_REG_RS1 = 0x02;
-		static uint16_t const COMM_REG_RS2 = 0x04;
-		static uint16_t const COMM_REG_RW0 = 0x10;
-		static uint16_t const COMM_REG_RW1 = 0x20;
-		static uint16_t const COMM_REG_WEN = 0x80;
+	static uint16_t const COMM_REG_RS0 = 0x01;
+	static uint16_t const COMM_REG_RS1 = 0x02;
+	static uint16_t const COMM_REG_RS2 = 0x04;
+	static uint16_t const COMM_REG_RW0 = 0x10;
+	static uint16_t const COMM_REG_RW1 = 0x20;
+	static uint16_t const COMM_REG_WEN = 0x80;
 
-		// Status register
-		static uint16_t const STA_REG_MS0 = 0x01;
-		static uint16_t const STA_REG_MS1 = 0x02;
-		static uint16_t const STA_REG_MS2 = 0x04;
-		static uint16_t const STA_REG_MS3 = 0x08;
-		static uint16_t const STA_REG_NOREF = 0x10;
-		static uint16_t const STA_REG_STBY = 0x20;
-		static uint16_t const STA_REG_STDY = 0x40;
-		static uint16_t const STA_REG_RDY = 0x80;
+	// Status register
+	static uint16_t const STA_REG_MS0 = 0x01;
+	static uint16_t const STA_REG_MS1 = 0x02;
+	static uint16_t const STA_REG_MS2 = 0x04;
+	static uint16_t const STA_REG_MS3 = 0x08;
+	static uint16_t const STA_REG_NOREF = 0x10;
+	static uint16_t const STA_REG_STBY = 0x20;
+	static uint16_t const STA_REG_STDY = 0x40;
+	static uint16_t const STA_REG_RDY = 0x80;
 
-		//Mode register
-		static uint16_t const MOD_REG_CH0 = 0x01;
-	    static uint16_t const MOD_REG_CH1 = 0x02;
-		static uint16_t const MOD_REG_RN1 = 0x10;
-		static uint16_t const MOD_REG_RN2 = 0x20;
-		static uint16_t const MOD_REG_MD0 = 0x2000;
-		static uint16_t const MOD_REG_MD1 = 0x4000;
-		static uint16_t const MOD_REG_MD2 = 0x8000;
+	//Mode register
+	static uint16_t const MOD_REG_CH0 = 0x01;
+	static uint16_t const MOD_REG_CH1 = 0x02;
+	static uint16_t const MOD_REG_RN1 = 0x10;
+	static uint16_t const MOD_REG_RN2 = 0x20;
+	static uint16_t const MOD_REG_MD0 = 0x2000;
+	static uint16_t const MOD_REG_MD1 = 0x4000;
+	static uint16_t const MOD_REG_MD2 = 0x8000;
 
+	//Filter register
+	static uint16_t const FIL_REG_CHP = 0x10;
+	static uint16_t const FIL_REG_AC = 0x20;
+	static uint16_t const FIL_REG_FAST = 0x100;
+	static uint16_t const FIL_REG_SKIP = 0x200;
 
-		//Filter register
-		static uint16_t const FIL_REG_CHP = 0x10;
-		static uint16_t const FIL_REG_AC = 0x20;
-		static uint16_t const FIL_REG_FAST = 0x100;
-		static uint16_t const FIL_REG_SKIP = 0x200;
+	//DAC register
+	static uint16_t const DAC_REG_DAC0 = 0x01;
+	static uint16_t const DAC_REG_DAC1 = 0x02;
+	static uint16_t const DAC_REG_DAC2 = 0x04;
+	static uint16_t const DAC_REG_DAC3 = 0x08;
+	static uint16_t const DAC_REG_DAC4 = 0x10;
+	static uint16_t const DAC_REG_DAC5 = 0x20;
 
-		//DAC register
-		static uint16_t const DAC_REG_DAC0 = 0x01;
-		static uint16_t const DAC_REG_DAC1 = 0x02;
-		static uint16_t const DAC_REG_DAC2 = 0x04;
-		static uint16_t const DAC_REG_DAC3 = 0x08;
-		static uint16_t const DAC_REG_DAC4 = 0x10;
-		static uint16_t const DAC_REG_DAC5 = 0x20;
-
-
-
-
-	volatile int8_t rawDataX;
-	volatile int8_t rawDataY;
-	volatile int8_t rawDataZ;
-
-	float accVal[3];
-
+	volatile bool cmdReceived;
 	volatile bool isDataReady;
+
+	void SetCmdReadStatusRegister()
+	{
+		/* cmdTxBuf[0] =
+		 * cmdTxBuf[1] =
+		 * cmdTxBuf[2] =
+		 */
+		// cmdSize =
+	}
+
+	void TriggerBufferedTransmission()
+	{
+		SPI_CS() = 0;
+		cmdReceived = false;
+		txIndex = rxIndex = 0;
+		SpiTxIrqEnable();
+	}
 
 	// Wymiana danych na SPI z blokowaniem
 	uint8_t WriteReadContinue(uint8_t data)
@@ -131,7 +167,6 @@ public:
 	    while(!(SPI2->SR & SPI_SR_RXNE)) {};
 	    data = SPI2->DR;
 	    return data;
-
 	}
 
 	void Stop()
@@ -145,30 +180,46 @@ public:
 		HardwareInit();
 
 		isDataReady = false;
+		cmdSize = 0;
 		fsmState = IDLE;
-		u16Data = SPI2->DR;
-		// ustawienie akcelerometru
 
-		// zezwolenie na obsluge przerwan od odbiornika SPI
-		//SPI2->CR2 |= SPI_CR2_RXNEIE;
+		// read - just in case (reset RXNE flag)
+		u16Data = SPI2->DR;
+
+		SpiRxIrqEnable();
 	}
 
 	void Irq()
 	{
-	    uint16_t data;
-		SPI_CS() = 1;
-		data = (SPI2->DR) & 0x00FF;
-		Fsm(data);
+		uint16_t status = SPI2->SR;
+
+		// check a source of the interrupt
+		if ((status & SPI_SR_TXE) && (txIrqEnable))
+		{
+			SPI2->DR = cmdTxBuf[txIndex++];
+			if (txIndex >= cmdSize)
+				SpiTxIrqDisable();
+		}
+
+		if (status & SPI_SR_RXNE)
+		{
+			cmdTxBuf[rxIndex++] = SPI2->DR;
+			if (rxIndex >= cmdSize)
+			{
+				cmdReceived = true;
+				SPI_CS() = 1;
+			}
+		}
+//		Fsm(data);
 	}
 
 	void Fsm(uint16_t);
 
-	void ScaleData()
+	void Update()
 	{
-		accVal[0] = (float)rawDataX;
-		accVal[1] = (float)rawDataY;
-		accVal[2] = (float)rawDataZ;
+
 	}
+
 };
 
 
