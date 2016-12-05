@@ -4,7 +4,7 @@ extern "C"
 {
 	void SysTick_Handler(void);
 	void EXTI0_IRQHandler(void);
-	void SPI1_IRQHandler(void);
+	void SPI2_IRQHandler(void);
 	void DMA1_Channel7_IRQHandler(void);
 	void USART2_IRQHandler(void);
 }
@@ -31,5 +31,8 @@ void SysTick_Handler(void)
 {
 	pApp->PeriodicUpdate();
 }
-
+void SPI2_IRQHandler(void)
+{
+	pApp->tensometer.Irq();
+}
 

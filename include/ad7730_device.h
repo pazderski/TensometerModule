@@ -71,7 +71,7 @@ class Tensometer
 
 	void SpiTxIrqDisable()
 	{
-		SPI2->CR2 &= SPI_CR2_TXEIE;
+		SPI2->CR2 &= ~SPI_CR2_TXEIE;
 		txIrqEnable = false;
 	}
 
@@ -129,11 +129,11 @@ public:
 
 	void SetCmdReadStatusRegister()
 	{
-		/* cmdTxBuf[0] =
-		 * cmdTxBuf[1] =
-		 * cmdTxBuf[2] =
-		 */
-		// cmdSize =
+		cmdTxBuf[0] = 0x20;
+		cmdTxBuf[1] = 0x00;
+		cmdTxBuf[2] = 0x00;
+
+		cmdSize = 3;
 	}
 
 	void TriggerBufferedTransmission()
@@ -191,8 +191,9 @@ public:
 
 	void Irq()
 	{
-		uint16_t status = SPI2->SR;
 
+		uint16_t status = SPI2->SR;
+		uint32_t rcv_data = 0x00;
 		// check a source of the interrupt
 		if ((status & SPI_SR_TXE) && (txIrqEnable))
 		{
@@ -203,11 +204,18 @@ public:
 
 		if (status & SPI_SR_RXNE)
 		{
-			cmdTxBuf[rxIndex++] = SPI2->DR;
+			cmdRxBuf[rxIndex++] = 0xFF & SPI2->DR;
 			if (rxIndex >= cmdSize)
 			{
 				cmdReceived = true;
 				SPI_CS() = 1;
+				if(rxIndex==3)
+				{
+					rcv_data = 0x00;
+					rcv_data = cmdRxBuf[0];
+					rcv_data = rcv_data<<8 | cmdRxBuf[1];
+					rcv_data = rcv_data<<8 | cmdRxBuf[2];
+				}
 			}
 		}
 //		Fsm(data);
@@ -217,7 +225,8 @@ public:
 
 	void Update()
 	{
-
+		SetCmdReadStatusRegister();
+		TriggerBufferedTransmission();
 	}
 
 };
