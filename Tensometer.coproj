@@ -93,8 +93,8 @@
     <File name="cmsis_boot/stm32f10x.h" path="cmsis_boot/stm32f10x.h" type="1"/>
     <File name="include/uart_communication_interface.h" path="include/uart_communication_interface.h" type="1"/>
     <File name="include/common.h" path="include/common.h" type="1"/>
-    <File name="include/led_interface.h" path="include/led_interface.h" type="1"/>
     <File name="src/uart_communication_interface.cpp" path="src/uart_communication_interface.cpp" type="1"/>
+    <File name="include/led_interface.h" path="include/led_interface.h" type="1"/>
     <File name="cmsis_boot/stm32f10x_conf.h" path="cmsis_boot/stm32f10x_conf.h" type="1"/>
   </Files>
 </Project>

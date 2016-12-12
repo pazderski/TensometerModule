@@ -18,16 +18,18 @@ class Tensometer
 	// Definicje stanow automatu do obslugi akcelerometru
 	enum FsmState
 	{
+		DAC_CONFIG,
 		IDLE,
 		RESET,
 		FILTER_CONFIG,
 		MODE_CONFIG,
-		WAIT
+		WAIT,
+		RUN
 	};
 
 	volatile uint16_t u16Data;
 
-	FsmState fsmState;
+	FsmState fsmState=FILTER_CONFIG;
 
 	static volatile unsigned long & SPI_CS()
 	{
@@ -82,7 +84,9 @@ class Tensometer
 
 
 public:
-
+	uint32_t rcv_data = 0x00;
+	uint8_t fsmSubState=1;
+	int i=1;
 	// Communication register
 	static uint16_t const COMM_REG_RS0 = 0x01;
 	static uint16_t const COMM_REG_RS1 = 0x02;
@@ -127,13 +131,13 @@ public:
 	volatile bool cmdReceived;
 	volatile bool isDataReady;
 
-	void SetCmdReadStatusRegister()
+	void SetCmdReadStatusRegister(uint32_t data, uint8_t size)
 	{
-		cmdTxBuf[0] = 0x20;
-		cmdTxBuf[1] = 0x00;
-		cmdTxBuf[2] = 0x00;
-
-		cmdSize = 3;
+		cmdTxBuf[0] = data & 0x000000ff;
+		cmdTxBuf[1] = (data & 0x0000ff00) >> 8;
+		cmdTxBuf[2] = (data & 0x00ff0000) >> 16;
+		cmdTxBuf[3] = (data & 0xff000000) >> 24;
+		cmdSize = size;
 	}
 
 	void TriggerBufferedTransmission()
@@ -181,7 +185,7 @@ public:
 
 		isDataReady = false;
 		cmdSize = 0;
-		fsmState = IDLE;
+		fsmState = FILTER_CONFIG;
 
 		// read - just in case (reset RXNE flag)
 		u16Data = SPI2->DR;
@@ -191,9 +195,7 @@ public:
 
 	void Irq()
 	{
-
 		uint16_t status = SPI2->SR;
-		uint32_t rcv_data = 0x00;
 		// check a source of the interrupt
 		if ((status & SPI_SR_TXE) && (txIrqEnable))
 		{
@@ -209,23 +211,83 @@ public:
 			{
 				cmdReceived = true;
 				SPI_CS() = 1;
-				if(rxIndex==3)
+				rcv_data=0x00;
+				rcv_data = cmdRxBuf[0];
+
+				for(i=1;i<(int)rxIndex;i++)
 				{
-					rcv_data = 0x00;
-					rcv_data = cmdRxBuf[0];
-					rcv_data = rcv_data<<8 | cmdRxBuf[1];
-					rcv_data = rcv_data<<8 | cmdRxBuf[2];
+					rcv_data=rcv_data<<8|cmdRxBuf[i];
 				}
+
 			}
 		}
-//		Fsm(data);
+		Fsm();
 	}
 
-	void Fsm(uint16_t);
+	void Fsm()
+	{
+	switch(fsmState)
+	{
+	case DAC_CONFIG:
+		switch(fsmSubState)
+				{
+				case 1:
+				SetCmdReadStatusRegister(0x04,1); //Next Operation as Write to 	DAC Register
+				fsmSubState=2;
+				break;
+				case 2:
+				SetCmdReadStatusRegister(0x23,1); //Write to DAC Register
+				fsmState=MODE_CONFIG;
+				fsmSubState=1;
+				break;
+				}
+			break;
+	case FILTER_CONFIG:
+		switch(fsmSubState)
+				{
+				case 1:
+				SetCmdReadStatusRegister(0x03,1); //Next Operation as Write to 	Filter Register
+				fsmSubState=2;
+				break;
+				case 2:
+				SetCmdReadStatusRegister(0x800010,3); //Write to 	Filter Register
+				fsmState=DAC_CONFIG;
+				fsmSubState=1;
+				break;
+				}
+			break;
+	case MODE_CONFIG:
+		switch(fsmSubState)
+				{
+				case 1:
+				SetCmdReadStatusRegister(0x02,1); //Next Operation as Write to 	Filter Register
+				fsmSubState=2;
+				break;
+				case 2:
+				SetCmdReadStatusRegister(0xB180,1); //Next Operation as Write to 	Filter Register
+				fsmSubState=3;
+				fsmState=WAIT;
+				break;
+				case 3:
+				SetCmdReadStatusRegister(0x03,1); //Next Operation as Write to 	Filter Register
+				fsmSubState=2;
+				break;
+				case 4:
+				SetCmdReadStatusRegister(0x800010,3); //Write to 	Filter Register
+				fsmState=DAC_CONFIG;
+				fsmSubState=1;
+				break;
+				}
+		break;
+	case RUN:
+		break;
+	case WAIT:
+		break;
+	}
+	}
 
 	void Update()
 	{
-		SetCmdReadStatusRegister();
 		TriggerBufferedTransmission();
 	}
 
