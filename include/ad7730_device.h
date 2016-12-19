@@ -12,15 +12,17 @@ class Tensometer
 	volatile uint8_t rxIndex;
 	volatile bool txIrqEnable;
 	volatile bool rxIrqEnable;
-
+	uint32_t DATA=0;
+	uint32_t rcv_data = 0x00;
+	int fsmSubState;
+	int i=1;
+	int CHECK=0;
 	//volatile uint8_t
 
 	// Definicje stanow automatu do obslugi akcelerometru
 	enum FsmState
 	{
 		DAC_CONFIG,
-		IDLE,
-		RESET,
 		FILTER_CONFIG,
 		MODE_CONFIG,
 		WAIT,
@@ -30,6 +32,7 @@ class Tensometer
 	volatile uint16_t u16Data;
 
 	FsmState fsmState=FILTER_CONFIG;
+	FsmState lastfsmState=FILTER_CONFIG;
 
 	static volatile unsigned long & SPI_CS()
 	{
@@ -50,9 +53,9 @@ class Tensometer
 		RCC->APB2ENR |= RCC_APB2ENR_IOPBEN;
 
 		//Zerujemy bity wyjsciowe
-		GPIOB->ODR&= ~(GPIO_ODR_ODR1 | GPIO_ODR_ODR12 | GPIO_ODR_ODR13 | GPIO_ODR_ODR14 | GPIO_ODR_ODR15);
+		GPIOB->ODR&= ~(GPIO_ODR_ODR0 | GPIO_ODR_ODR1 | GPIO_ODR_ODR12 | GPIO_ODR_ODR13 | GPIO_ODR_ODR14 | GPIO_ODR_ODR15);
 		// zerujemy rejestry PA4-7 Mode,CNF
-		GPIOB->CRL &= ~(GPIO_CRL_CNF1 | GPIO_CRL_MODE1);
+		GPIOB->CRL &= ~(GPIO_CRL_CNF0 | GPIO_CRL_CNF1 | GPIO_CRL_MODE1);
 		GPIOB->CRH &= ~(GPIO_CRH_CNF12 | GPIO_CRH_CNF13 |GPIO_CRH_CNF14 | GPIO_CRH_CNF15 | GPIO_CRH_MODE12 | GPIO_CRH_MODE13 | GPIO_CRH_MODE14 | GPIO_CRH_MODE15);
 		GPIOB->CRL |= GPIO_CRL_MODE1_0;
 		GPIOB->CRH |= GPIO_CRH_MODE12_0 | GPIO_CRH_MODE13_0 | GPIO_CRH_MODE15_0 | GPIO_CRH_CNF13_1 |GPIO_CRH_CNF14_0 | GPIO_CRH_CNF15_1;
@@ -84,9 +87,33 @@ class Tensometer
 
 
 public:
-	uint32_t rcv_data = 0x00;
-	uint8_t fsmSubState=1;
-	int i=1;
+	// Single Read
+	static uint16_t const READ_STATUS =0x10;
+	static uint16_t const READ_DATA=0x11;
+	static uint16_t const READ_MODE=0x12;
+	static uint16_t const READ_FILTER=0x13;
+	static uint16_t const READ_DAC=0x14;
+	static uint16_t const READ_OFFSET=0x15;
+	static uint16_t const READ_GAIN=0x16;
+
+	// Continuous Read
+	static uint16_t const READ_STATUS_CONT =0x20;
+	static uint16_t const READ_DATA_CONT=0x21;
+	static uint16_t const READ_MODE_CONT=0x22;
+
+	// Stop Continuous Read
+	static uint16_t const STOP_READ_CONT =0x30;
+
+
+	// Write
+	static uint16_t const WRITE_COMM=0x00;
+	static uint16_t const WRITE_MODE=0x02;
+	static uint16_t const WRITE_FILTER=0x03;
+	static uint16_t const WRITE_DAC=0x04;
+	static uint16_t const WRITE_OFFSET=0x05;
+	static uint16_t const WRITE_GAIN=0x06;
+
+
 	// Communication register
 	static uint16_t const COMM_REG_RS0 = 0x01;
 	static uint16_t const COMM_REG_RS1 = 0x02;
@@ -182,7 +209,7 @@ public:
 	void Init()
 	{
 		HardwareInit();
-
+		fsmSubState = 1;
 		isDataReady = false;
 		cmdSize = 0;
 		fsmState = FILTER_CONFIG;
@@ -232,56 +259,83 @@ public:
 		switch(fsmSubState)
 				{
 				case 1:
-				SetCmdReadStatusRegister(0x04,1); //Next Operation as Write to 	DAC Register
+				SetCmdReadStatusRegister(WRITE_DAC,1);
 				fsmSubState=2;
 				break;
 				case 2:
-				SetCmdReadStatusRegister(0x23,1); //Write to DAC Register
+				SetCmdReadStatusRegister(0x23,1);
 				fsmState=MODE_CONFIG;
 				fsmSubState=1;
 				break;
 				}
 			break;
 	case FILTER_CONFIG:
-		switch(fsmSubState)
-				{
-				case 1:
-				SetCmdReadStatusRegister(0x03,1); //Next Operation as Write to 	Filter Register
-				fsmSubState=2;
-				break;
-				case 2:
-				SetCmdReadStatusRegister(0x800010,3); //Write to 	Filter Register
-				fsmState=DAC_CONFIG;
-				fsmSubState=1;
-				break;
-				}
+				switch(fsmSubState)
+						{
+						case 1:
+						SetCmdReadStatusRegister(WRITE_FILTER,1);
+						fsmSubState=2;
+						break;
+						case 2:
+						SetCmdReadStatusRegister(0x800010,3);
+						fsmState=DAC_CONFIG;
+						fsmSubState=1;
+						break;
+						}
 			break;
 	case MODE_CONFIG:
 		switch(fsmSubState)
 				{
 				case 1:
-				SetCmdReadStatusRegister(0x02,1); //Next Operation as Write to 	Filter Register
+				SetCmdReadStatusRegister(WRITE_MODE,1);
 				fsmSubState=2;
 				break;
 				case 2:
-				SetCmdReadStatusRegister(0xB180,1); //Next Operation as Write to 	Filter Register
+				SetCmdReadStatusRegister(0xB180,1);
 				fsmSubState=3;
+				lastfsmState=MODE_CONFIG;
 				fsmState=WAIT;
 				break;
 				case 3:
-				SetCmdReadStatusRegister(0x03,1); //Next Operation as Write to 	Filter Register
-				fsmSubState=2;
+				SetCmdReadStatusRegister(WRITE_MODE,1);
+				fsmSubState=4;
 				break;
 				case 4:
-				SetCmdReadStatusRegister(0x800010,3); //Write to 	Filter Register
-				fsmState=DAC_CONFIG;
-				fsmSubState=1;
+				SetCmdReadStatusRegister(0x9180,3);
+				lastfsmState=MODE_CONFIG;
+				fsmState=WAIT;
+				fsmSubState=5;
+				break;
+				case 5:
+				SetCmdReadStatusRegister(WRITE_MODE,1);
+				fsmSubState=6;
+				break;
+				case 6:
+				SetCmdReadStatusRegister(0x2180,4);
+			    fsmSubState=7;
+				break;
+				case 7:
+				SetCmdReadStatusRegister(READ_DATA_CONT,1);
+				fsmState=RUN;
 				break;
 				}
 		break;
 	case RUN:
+		fsmState=WAIT;
+		lastfsmState=RUN;
+		if(CHECK>1)
+		{
+			SetCmdReadStatusRegister(0x00,3);
+			DATA=rcv_data;
+		}
 		break;
 	case WAIT:
+		//SetCmdReadStatusRegister(READ_STATUS,2);
+		if((GPIOB->IDR&0x01)==0x01)//((cmdRxBuf[1]&&STA_REG_RDY)==0)
+		{
+			fsmState=lastfsmState;
+			CHECK=2;
+		}
 		break;
 	}
 	}
