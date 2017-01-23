@@ -29,6 +29,7 @@ class App
 	static const uint16_t period1 = 500;
 	static const uint16_t period2 = 5;
 
+
 public:
 
 	UartCommunicationInterface com;
@@ -78,16 +79,20 @@ public:
 		{
 			Led::Led1()^= 1;
 		  	clock1 = 0;
+
 		}
 
 		if (clock2 == period2)
 		{
 			clock2 = 0;
 			processSynch = true;
+			tensometer.Update();
+
 		}
 
 		com.PeriodicUpdate();
-		tensometer.Update();
+
+
 
 
 		/*Data = tensometer.WriteReadStart(0x04);

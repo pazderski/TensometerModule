@@ -12,27 +12,30 @@ class Tensometer
 	volatile uint8_t rxIndex;
 	volatile bool txIrqEnable;
 	volatile bool rxIrqEnable;
-	uint32_t DATA=0;
-	uint32_t rcv_data = 0x00;
+	uint32_t raw_data=0x00;
+	uint32_t c = 0x00;
 	int fsmSubState;
-	int i=1;
-	int CHECK=0;
+	int iteracja=0;
+	int error=0;
+
 	//volatile uint8_t
 
 	// Definicje stanow automatu do obslugi akcelerometru
 	enum FsmState
 	{
-		DAC_CONFIG,
-		FILTER_CONFIG,
-		MODE_CONFIG,
+		RESET,
+		INIT_WAIT,
 		WAIT,
-		RUN
+		FILTER_CONFIG,
+		DAC_CONFIG,
+		MODE_CONFIG,
+		READING_DATA
 	};
 
 	volatile uint16_t u16Data;
 
-	FsmState fsmState=FILTER_CONFIG;
-	FsmState lastfsmState=FILTER_CONFIG;
+	FsmState fsmState=WAIT;
+
 
 	static volatile unsigned long & SPI_CS()
 	{
@@ -158,52 +161,16 @@ public:
 	volatile bool cmdReceived;
 	volatile bool isDataReady;
 
-	void SetCmdReadStatusRegister(uint32_t data, uint8_t size)
-	{
-		cmdTxBuf[0] = data & 0x000000ff;
-		cmdTxBuf[1] = (data & 0x0000ff00) >> 8;
-		cmdTxBuf[2] = (data & 0x00ff0000) >> 16;
-		cmdTxBuf[3] = (data & 0xff000000) >> 24;
-		cmdSize = size;
-	}
-
 	void TriggerBufferedTransmission()
 	{
-		SPI_CS() = 0;
-		cmdReceived = false;
+		if(iteracja==5)
+		{
+		fsmSubState=1;
+		iteracja=0;
 		txIndex = rxIndex = 0;
-		SpiTxIrqEnable();
-	}
-
-	// Wymiana danych na SPI z blokowaniem
-	uint8_t WriteReadContinue(uint8_t data)
-	{
-		__NOP(); __NOP();
-		while(!(SPI2->SR & SPI_SR_TXE)) {};
-		SPI2->DR = data;
-	    while(SPI2->SR & SPI_SR_BSY) {};
-	    while(!(SPI2->SR & SPI_SR_RXNE)) {};
-	    data = SPI2->DR;
-	    return data;
-	}
-
-	uint8_t WriteReadStart(uint8_t data)
-	{
-		//fsmState = STATUS;
-		SPI_CS() = 0; __NOP(); __NOP();
-		while(!(SPI2->SR & SPI_SR_TXE)) {};
-		// rozkaz wysylany
-		SPI2->DR = data;
-	    while(SPI2->SR & SPI_SR_BSY) {};
-	    while(!(SPI2->SR & SPI_SR_RXNE)) {};
-	    data = SPI2->DR;
-	    return data;
-	}
-
-	void Stop()
-	{
-		//fsmState = STATUS;
-		__NOP(); __NOP(); SPI_CS() = 1;
+		Fsm();
+		}
+		iteracja++;
 	}
 
 	void Init()
@@ -212,16 +179,19 @@ public:
 		fsmSubState = 1;
 		isDataReady = false;
 		cmdSize = 0;
-		fsmState = FILTER_CONFIG;
+		fsmState = INIT_WAIT;
 
 		// read - just in case (reset RXNE flag)
 		u16Data = SPI2->DR;
+		iteracja=0;
 
 		SpiRxIrqEnable();
 	}
 
 	void Irq()
 	{
+
+		iteracja=0;
 		uint16_t status = SPI2->SR;
 		// check a source of the interrupt
 		if ((status & SPI_SR_TXE) && (txIrqEnable))
@@ -238,105 +208,184 @@ public:
 			{
 				cmdReceived = true;
 				SPI_CS() = 1;
-				rcv_data=0x00;
-				rcv_data = cmdRxBuf[0];
-
-				for(i=1;i<(int)rxIndex;i++)
-				{
-					rcv_data=rcv_data<<8|cmdRxBuf[i];
-				}
-
+				txIndex = rxIndex = 0;
 			}
 		}
 		Fsm();
+
 	}
 
 	void Fsm()
 	{
 	switch(fsmState)
 	{
-	case DAC_CONFIG:
+	case RESET:	//RESET Ukladu
+		if(fsmSubState==1)
+			{
+			fsmSubState++;
+			cmdTxBuf[0]=0xFF;
+			cmdTxBuf[1]=0xFF;
+			cmdTxBuf[2]=0xFF;
+			cmdTxBuf[3]=0xFF;
+			cmdTxBuf[4]=0xFF;
+			cmdSize=5;				// Liczba bajtów do przes³ania
+			SPI_CS() = 0;			// CS 0
+			SpiTxIrqEnable();		// Zezwolnie na przesy³ danych
+			}
+			if(txIndex==0)
+			{
+			fsmState=INIT_WAIT;
+			}
+	break;
+
+	case INIT_WAIT:									// Czekanie na inicjalizacje ukladu po resecie
 		switch(fsmSubState)
 				{
 				case 1:
-				SetCmdReadStatusRegister(WRITE_DAC,1);
-				fsmSubState=2;
+				cmdTxBuf[0]=READ_STATUS;			// Odczyt rejestru STATUS
+				cmdTxBuf[1]=0x00;
+				cmdSize=2;
+				fsmSubState++;
+				SPI_CS() = 0;
+				SpiTxIrqEnable();
 				break;
 				case 2:
-				SetCmdReadStatusRegister(0x23,1);
-				fsmState=MODE_CONFIG;
-				fsmSubState=1;
-				break;
-				}
-			break;
-	case FILTER_CONFIG:
-				switch(fsmSubState)
-						{
-						case 1:
-						SetCmdReadStatusRegister(WRITE_FILTER,1);
-						fsmSubState=2;
-						break;
-						case 2:
-						SetCmdReadStatusRegister(0x800010,3);
-						fsmState=DAC_CONFIG;
-						fsmSubState=1;
-						break;
-						}
-			break;
-	case MODE_CONFIG:
-		switch(fsmSubState)
-				{
-				case 1:
-				SetCmdReadStatusRegister(WRITE_MODE,1);
-				fsmSubState=2;
-				break;
-				case 2:
-				SetCmdReadStatusRegister(0xB180,1);
 				fsmSubState=3;
-				lastfsmState=MODE_CONFIG;
-				fsmState=WAIT;
 				break;
 				case 3:
-				SetCmdReadStatusRegister(WRITE_MODE,1);
-				fsmSubState=4;
-				break;
-				case 4:
-				SetCmdReadStatusRegister(0x9180,3);
-				lastfsmState=MODE_CONFIG;
-				fsmState=WAIT;
-				fsmSubState=5;
-				break;
-				case 5:
-				SetCmdReadStatusRegister(WRITE_MODE,1);
-				fsmSubState=6;
-				break;
-				case 6:
-				SetCmdReadStatusRegister(0x2180,4);
-			    fsmSubState=7;
-				break;
-				case 7:
-				SetCmdReadStatusRegister(READ_DATA_CONT,1);
-				fsmState=RUN;
+					if((cmdRxBuf[1]&0x0F)!=0x0B)	//Sprawdzanie czy uk³ad siê zainicjalizowa³
+						{
+						error++;
+						if (error > 10)
+							{
+							fsmState = RESET;		// wiêcej niz 10 z³ych odpowiedzi- RESET Uk³adu
+							error = 0;
+							}
+						}
+					else
+						{
+						fsmState=DAC_CONFIG;		// Przejscie do DAC_CONFIG
+						error=0;
+						}
 				break;
 				}
-		break;
-	case RUN:
-		fsmState=WAIT;
-		lastfsmState=RUN;
-		if(CHECK>1)
+	break;
+
+
+	case WAIT:										// Czekanie
+		switch(fsmSubState)
 		{
-			SetCmdReadStatusRegister(0x00,3);
-			DATA=rcv_data;
-		}
+		case 1:
+			cmdTxBuf[0]=READ_STATUS;				//Odczyt rejestru  STATUS
+			cmdTxBuf[1]=0x00;
+			cmdSize=2;
+			fsmSubState++;
+			SPI_CS() = 0;
+			SpiTxIrqEnable();
 		break;
-	case WAIT:
-		//SetCmdReadStatusRegister(READ_STATUS,2);
-		if((GPIOB->IDR&0x01)==0x01)//((cmdRxBuf[1]&&STA_REG_RDY)==0)
-		{
-			fsmState=lastfsmState;
-			CHECK=2;
-		}
+		case 2:
+			fsmSubState++;
 		break;
+		case 3:
+			if((cmdRxBuf[1]&0x0F)!=0x0B)	//Sprawdzanie czy uk³ad siê zainicjalizowa³
+				{
+				error++;
+				if (error > 10)
+					{
+					fsmState = RESET;		// wiêcej niz 10 z³ych odpowiedzi- RESET Uk³adu
+					error = 0;
+					}
+				}
+				else
+					{
+						error=0;
+						if (~(cmdRxBuf[1] & 0x80))
+						{
+							fsmState=READING_DATA;		// Przejscie do READING_DATA
+						}
+					}
+		break;
+		}
+	break;
+
+	case DAC_CONFIG:
+			if(fsmSubState==1)
+			{
+				fsmSubState++;
+				cmdSize=2;
+				cmdTxBuf[0]=WRITE_DAC;							//Zmiana rejestru DAC
+				cmdTxBuf[1]=0x20;
+				SPI_CS() = 0;
+				SpiTxIrqEnable();
+			}
+			if(txIndex==0)
+			{
+				fsmState=FILTER_CONFIG;
+			}
+	break;
+
+	case FILTER_CONFIG:
+			if(fsmSubState==1)
+			{
+				fsmSubState++;
+				cmdSize=4;
+				cmdTxBuf[0]=WRITE_FILTER;						//Zmiana rejestru FILTER
+				cmdTxBuf[1]=0x80;
+				cmdTxBuf[2]=0x02;
+				cmdTxBuf[3]=0x00;
+				SPI_CS() = 0;
+				SpiTxIrqEnable();
+			}
+			if(txIndex==0)
+			{
+				fsmState=MODE_CONFIG;
+			}
+	break;
+
+	case MODE_CONFIG:
+			if(fsmSubState==1)
+			{
+				fsmSubState++;
+				cmdSize=3;
+				cmdTxBuf[0]=WRITE_MODE;							//Zmiana rejestru MODE
+				cmdTxBuf[1]=0x20;
+				cmdTxBuf[2]=0x80;
+				SPI_CS() = 0;
+				SpiTxIrqEnable();
+			}
+			if(txIndex==0)
+			{
+				fsmState=WAIT;
+			}
+	break;
+
+	case READING_DATA:
+			if(fsmSubState==1)
+			{
+				fsmSubState++;
+				cmdSize=3;
+				cmdTxBuf[0]=READ_DATA;						//Odczyt rejestru - DATA
+				cmdTxBuf[1]=0x00;
+				cmdTxBuf[2]=0x00;
+				SPI_CS() = 0;
+				SpiTxIrqEnable();
+			}
+			if(txIndex==0)									//Obróbka danych
+			{
+				c=cmdRxBuf[1]*256 + cmdRxBuf[2];
+				if(c)
+				{
+					raw_data=c;
+				}
+				else
+				{
+					raw_data=0;
+				}
+				fsmState=WAIT;
+			}
+
+	break;
+
 	}
 	}
 
