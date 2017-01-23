@@ -17,8 +17,12 @@ class Tensometer
 	int fsmSubState;
 	int iteracja=0;
 	int error=0;
+	uint16_t Offset;
+	uint32_t Table[1000];
+	int number;
+	int i;
 
-	//volatile uint8_t
+
 
 	// Definicje stanow automatu do obslugi akcelerometru
 	enum FsmState
@@ -163,14 +167,14 @@ public:
 
 	void TriggerBufferedTransmission()
 	{
-		if(iteracja==5)
-		{
+		//if(iteracja==5)
+		//{
 		fsmSubState=1;
 		iteracja=0;
 		txIndex = rxIndex = 0;
 		Fsm();
-		}
-		iteracja++;
+		//}
+		//iteracja++;
 	}
 
 	void Init()
@@ -184,7 +188,9 @@ public:
 		// read - just in case (reset RXNE flag)
 		u16Data = SPI2->DR;
 		iteracja=0;
-
+		Offset=0x7600;
+		number=0;
+		i=0;
 		SpiRxIrqEnable();
 	}
 
@@ -375,12 +381,32 @@ public:
 				c=cmdRxBuf[1]*256 + cmdRxBuf[2];
 				if(c)
 				{
-					raw_data=c;
+					if(c>Offset)
+					{
+						raw_data=c-Offset;
+					}
+					else
+					{
+						raw_data=Offset-c;
+					}
+
 				}
 				else
 				{
 					raw_data=0;
 				}
+				//if(i%10==0)
+				//{
+				Table[number]=raw_data;
+				number++;
+				//}
+				//i++;
+				if(number==1000)
+				{
+					number=0;
+					i=0;
+				}
+
 				fsmState=WAIT;
 			}
 
