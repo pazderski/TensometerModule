@@ -3,42 +3,42 @@
 void UartCommunicationInterface::HardwareInit()
 {
 
-	// zalaczenie portu PD
-	RCC->APB2ENR |= RCC_APB2ENR_IOPDEN;
-	// zalaczenie zegara bloku USART2
-	RCC->APB1ENR |= RCC_APB1ENR_USART2EN;
+	// zalaczenie portu PA
+	RCC->APB2ENR |= RCC_APB2ENR_IOPAEN;
+	// zalaczenie zegara bloku USART1
+	RCC->APB2ENR |= RCC_APB2ENR_USART1EN;
 	// zalaczenie zegara kontrolera DMA1
 	RCC->AHBENR |= RCC_AHBENR_DMA1EN;
 	// zalaczenie remapowania
 	RCC->APB2ENR |= RCC_APB2ENR_AFIOEN;
 
-	// PA2 - UART2_TX (out), PA3 - UART_RX (in)
+	// PA9 - UART1_TX (out), PA10 - UART1_RX (in)
 	// brak remapowania linii wg dokumentacji ogólnej
-	AFIO->MAPR &= ~AFIO_MAPR_USART2_REMAP;
+	AFIO->MAPR &= ~AFIO_MAPR_USART1_REMAP;
 
-	GPIOD->CRL &= ~(GPIO_CRL_CNF5 | GPIO_CRL_MODE5);
-	GPIOD->CRL |= GPIO_CRL_CNF5_1 | GPIO_CRL_MODE5_0;
+	GPIOA->CRH &= ~(GPIO_CRH_CNF9 | GPIO_CRH_MODE9 | GPIO_CRH_CNF10 | GPIO_CRH_MODE10);
+	GPIOA->CRH |= GPIO_CRH_CNF9_1 | GPIO_CRH_MODE9_1 | GPIO_CRH_CNF10_0;
 
 	// Parametry transmisji
-	USART2->BRR = 0x138; //115,2kbs
-	USART2->CR1 = USART_CR1_RE | USART_CR1_TE;
-	USART2->CR3 |= USART_CR3_DMAT | USART_CR3_DMAR;
-	USART2->CR1 |= USART_CR1_UE;
+	USART1->BRR = 0x138; //115,2kbs
+	USART1->CR1 = USART_CR1_RE | USART_CR1_TE;
+	USART1->CR3 |= USART_CR3_DMAT | USART_CR3_DMAR;
+	USART1->CR1 |= USART_CR1_UE;
 
-	// DMA1: USART2 RX : stream 6,  USART2 TX : stream 7
+	// DMA1: USART1 RX : stream 5,  USART1 TX : stream 4
 
 	// RX - urzadzenie->pamiec, automatyczna inkrementacja wskaznika pamieci, znaki 8-bitowe, bufor cyckliczny
 	DMA_USART_RX->CCR = DMA_CCRx_MINC | DMA_CCRx_CIRC;
 	DMA_USART_RX->CNDTR = RX_BUF_SIZE;
-	DMA_USART_RX->CPAR = (int) &(USART2->DR);
+	DMA_USART_RX->CPAR = (int) &(USART1->DR);
 	DMA_USART_RX->CMAR = (int) rxBuf;
 
 	//TX - pamiec->urzadzenie, automatyczna inkrementacja wskaznika pamieci
 	DMA_USART_TX->CCR = DMA_CCRx_MINC | DMA_CCRx_DIR;
-	DMA_USART_TX->CPAR = (int) &(USART2->DR);
+	DMA_USART_TX->CPAR = (int) &(USART1->DR);
 
 	// zerowanie bitow statusowych (w tym flag b³êdów) kontrolera DMA1
-	DMA1->IFCR = DMA_IFCR_CGIF6 | DMA_IFCR_CGIF7;
+	DMA1->IFCR = DMA_IFCR_CGIF4 | DMA_IFCR_CGIF5;
 
 	// zezwolenie na obsluge przerwan od kanalu DMA
 	DMA_USART_RX->CCR |= DMA_CCRx_EN;
@@ -65,8 +65,8 @@ void UartCommunicationInterface::Send(uint16_t size)
 	DMA_USART_TX->CMAR = (int) txBuf;
 
 	// czyszczenie bitow statusowych (wraz z flagami bledow) dla DMA1
-	DMA1->IFCR = DMA_IFCR_CGIF7;
-	USART2->SR &= ~(USART_SR_TC);
+	DMA1->IFCR = DMA_IFCR_CGIF4;
+	USART1->SR &= ~(USART_SR_TC);
 
 	isFrameSending = true;
 

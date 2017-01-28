@@ -4,7 +4,6 @@
 
 #include "stm32f10x.h"
 #include "led_interface.h"
-#include "encoder_interface.h"
 #include "ad7730_device.h"
 #include "uart_communication_interface.h"
 
@@ -33,8 +32,6 @@ class App
 public:
 
 	UartCommunicationInterface com;
-	InputEncoders encodersIn;
-	OutputEncoder encoderOut;
 	Tensometer tensometer;
 
 	App()
@@ -54,8 +51,8 @@ public:
 			while (1);
 		}
 
-		NVIC_EnableIRQ(DMA1_Channel7_IRQn);
-		NVIC_EnableIRQ(USART2_IRQn);
+		NVIC_EnableIRQ(DMA1_Channel4_IRQn);
+		NVIC_EnableIRQ(USART1_IRQn);
 		NVIC_EnableIRQ(SPI2_IRQn);
 	}
 
@@ -63,8 +60,6 @@ public:
 	{
 		GeneralHardwareInit();
 		com.Init();
-		encodersIn.Init();
-		encoderOut.Init();
 		tensometer.Init();
 
 	}
@@ -79,6 +74,7 @@ public:
 		{
 			Led::Led1()^= 1;
 		  	clock1 = 0;
+		  	//com.Send(2);
 
 		}
 
@@ -106,19 +102,14 @@ public:
 
 	void Run()
 	{
-		//tensometer.WriteReadStart();
 		while(1)
 		{
-
-			//encodersIn.ReadCounters();
-			//__disable_irq();
-			//encoderOut.SetOutput(encodersIn.state);
-			//__enable_irq();
-
-			if (encodersIn.direction == 1)
-				Led::Led2() = 1;
-			else
-				Led::Led2() = 0;
+			if(com.isFrameReceived)
+			{
+				memcpy(com.txData, (void*)&tensometer.forceValue, sizeof(uint32_t));
+				com.Send(sizeof(float));
+				com.isFrameReceived = false;
+			}
 		}
 	}
 };

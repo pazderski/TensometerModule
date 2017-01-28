@@ -4,8 +4,8 @@
 #include "stm32f10x_dma_extra.h"
 
 // powiazania kanalow DMA z nadajnikiem i odbiornikiem UART
-#define DMA_USART_RX	DMA1_Channel6
-#define DMA_USART_TX	DMA1_Channel7
+#define DMA_USART_RX	DMA1_Channel5
+#define DMA_USART_TX	DMA1_Channel4
 
 class UartCommunicationInterface
 {
@@ -53,16 +53,16 @@ public:
 
 	void IrqDma()
 	{
-		DMA1->IFCR  = DMA_IFCR_CTCIF7 | DMA_IFCR_CHTIF7 | DMA_IFCR_CTEIF7;
+		DMA1->IFCR  = DMA_IFCR_CTCIF4 | DMA_IFCR_CHTIF4 | DMA_IFCR_CTEIF4;
 		DMA_USART_TX->CCR &= ~DMA_CCR1_EN;
-		USART2->CR1 |= USART_CR1_TCIE;
+		USART1->CR1 |= USART_CR1_TCIE;
 	}
 
 	void IrqTx()
 	{
-		if (USART2->SR & USART_SR_TC)
+		if (USART1->SR & USART_SR_TC)
 		{
-		    USART2->CR1 &= ~USART_CR1_TCIE;
+		    USART1->CR1 &= ~USART_CR1_TCIE;
 		    isFrameSending = false;
 		}
 	}

@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<history>
+   <processor signature="arm-none-eabi-gcc noversion nomachine -mcpu=cortex-m3 -mthumb -Wall -ffunction-sections -g -O0 -std=c++11 -c -DSTM32F103C8 -DSTM32F10X_MD -DSUPPORT_CPLUSPLUS -I..\..\..\..\..\..\..\prywatne\granty\medical\manipulator_medyczny\pomiar_sily\firmware\cmsis_boot -I..\..\..\..\..\..\..\prywatne\granty\medical\manipulator_medyczny\pomiar_sily -I..\..\..\..\..\..\..\prywatne\granty\medical\manipulator_medyczny\pomiar_sily\firmware\include -I..\..\..\..\..\..\..\prywatne\granty\medical\manipulator_medyczny\pomiar_sily\firmware\cmsis -I..\..\..\..\..\..\..\prywatne\granty\medical\manipulator_medyczny\pomiar_sily\firmware">
+      <target file="startup_stm32f10x_md.o" lastModified="159e647cded">
+         <source file="..\..\..\cmsis_boot\startup\startup_stm32f10x_md.c" lastModified="157703472ef"/>
+      </target>
+      <target file="encoder_interface.o" lastModified="159e647cf8d">
+         <source file="..\..\..\src\encoder_interface.cpp" lastModified="1577034736a"/>
+      </target>
+      <target file="system_stm32f10x.o" lastModified="159e647cc53">
+         <source file="..\..\..\cmsis_boot\system_stm32f10x.c" lastModified="157703472f5"/>
+      </target>
+      <target file="uart_communication_interface.o" lastModified="159e647cb78">
+         <source file="..\..\..\src\uart_communication_interface.cpp" lastModified="159e635e02d"/>
+      </target>
+      <target file="main.o" lastModified="159e647cecb">
+         <source file="..\..\..\src\main.cpp" lastModified="1588c53b516"/>
+      </target>
+      <target file="common.o" lastModified="159e647cd37">
+         <source file="..\..\..\src\common.cpp" lastModified="159e5ac68bc"/>
+      </target>
+   </processor>
+</history>

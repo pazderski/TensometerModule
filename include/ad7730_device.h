@@ -165,6 +165,8 @@ public:
 	volatile bool cmdReceived;
 	volatile bool isDataReady;
 
+	volatile uint32_t forceValue;
+
 	void TriggerBufferedTransmission()
 	{
 		//if(iteracja==5)
@@ -395,6 +397,8 @@ public:
 				{
 					raw_data=0;
 				}
+
+				forceValue = raw_data;//???
 				//if(i%10==0)
 				//{
 				Table[number]=raw_data;
