@@ -17,14 +17,18 @@ class App
 	volatile uint32_t mainClock;
 	volatile uint16_t clock1;
 	volatile uint16_t clock2;
-	volatile uint16_t Data;
-	volatile uint16_t Data_write;
-	volatile uint16_t Data_read;
 	volatile bool processSynch;
+
+
+	volatile uint16_t Data;
+	volatile uint8_t Data_write;
+	volatile uint16_t Data_read;
+
 
 	// periods [ms]
 	static const uint16_t period1 = 500;
 	static const uint16_t period2 = 5;
+
 
 public:
 
@@ -52,6 +56,7 @@ public:
 
 		NVIC_EnableIRQ(DMA1_Channel7_IRQn);
 		NVIC_EnableIRQ(USART2_IRQn);
+		NVIC_EnableIRQ(SPI2_IRQn);
 	}
 
 	void Init()
@@ -61,6 +66,7 @@ public:
 		encodersIn.Init();
 		encoderOut.Init();
 		tensometer.Init();
+
 	}
 
 	void PeriodicUpdate()
@@ -73,20 +79,29 @@ public:
 		{
 			Led::Led1()^= 1;
 		  	clock1 = 0;
+
 		}
 
 		if (clock2 == period2)
 		{
 			clock2 = 0;
 			processSynch = true;
+			tensometer.Update();
+
 		}
 
 		com.PeriodicUpdate();
 
-		Data = tensometer.WriteReadStart(0x10);
-		Data = tensometer.WriteReadContinue(0x00);
-		tensometer.Stop();
 
+
+
+		/*Data = tensometer.WriteReadStart(0x04);
+		Data_write = tensometer.WriteReadContinue(0x24);
+		tensometer.Stop();
+		Data = tensometer.WriteReadStart(0x14);
+		Data_read = tensometer.WriteReadContinue(0x00);
+		tensometer.Stop();
+		Data_read=Data_read;*/
 	}
 
 	void Run()
