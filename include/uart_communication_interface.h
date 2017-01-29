@@ -38,6 +38,7 @@ class UartCommunicationInterface
 	uint8_t txBuf[TX_BUF_SIZE];
 
 	void HardwareInit();
+	uint16_t CRC16(const uint8_t *nData, uint16_t wLength);
 
 public:
 

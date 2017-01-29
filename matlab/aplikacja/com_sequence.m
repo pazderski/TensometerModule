@@ -1,11 +1,15 @@
-dataTab = zeros(1, 1000);
+N = 500;
+dataTab = zeros(1, N);
 flushinput(s);
-for i = 1:1000
+tic;
+for i = 1:N
     com_send([0]);
-    pause(0.05);
+    tau = toc;
+    wait(tau, 0.04);
     [data, data_size] = com_receive();
-    % data
-    acc = typecast(data, 'uint32')
-   
-    dataTab(i) = acc;
+    
+    if (data_size>0)
+        force = typecast(data, 'int16');
+        dataTab(i) = force;
+    end
 end    

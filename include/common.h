@@ -74,30 +74,19 @@ public:
 		{
 			Led::Led1()^= 1;
 		  	clock1 = 0;
-		  	//com.Send(2);
-
 		}
 
 		if (clock2 == period2)
 		{
 			clock2 = 0;
 			processSynch = true;
-			tensometer.Update();
+			//tensometer.Update();
 
 		}
 
+		tensometer.Update();
 		com.PeriodicUpdate();
 
-
-
-
-		/*Data = tensometer.WriteReadStart(0x04);
-		Data_write = tensometer.WriteReadContinue(0x24);
-		tensometer.Stop();
-		Data = tensometer.WriteReadStart(0x14);
-		Data_read = tensometer.WriteReadContinue(0x00);
-		tensometer.Stop();
-		Data_read=Data_read;*/
 	}
 
 	void Run()
@@ -106,8 +95,8 @@ public:
 		{
 			if(com.isFrameReceived)
 			{
-				memcpy(com.txData, (void*)&tensometer.forceValue, sizeof(uint32_t));
-				com.Send(sizeof(float));
+				memcpy(com.txData, (void*)&tensometer.forceValue, sizeof(uint16_t));
+				com.Send(sizeof(uint16_t));
 				com.isFrameReceived = false;
 			}
 		}

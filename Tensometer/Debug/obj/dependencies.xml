@@ -1,63 +1,57 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <dependencies>
-   <includePath signature="/I..\..\..\..\..\..\..\prywatne\granty\medical\manipulator_medyczny\pomiar_sily\firmware\cmsis_boot /I..\..\..\..\..\..\..\prywatne\granty\medical\manipulator_medyczny\pomiar_sily /I..\..\..\..\..\..\..\prywatne\granty\medical\manipulator_medyczny\pomiar_sily\firmware\include /I..\..\..\..\..\..\..\prywatne\granty\medical\manipulator_medyczny\pomiar_sily\firmware\cmsis /I..\..\..\..\..\..\..\prywatne\granty\medical\manipulator_medyczny\pomiar_sily\firmware">
-      <source file="..\..\..\cmsis_boot\stm32f10x.h" lastModified="157703476db">
+   <includePath signature="/IE:\praca\dydaktyka\pracownia_problemowa\2016\TensometerModule\cmsis_boot /IE:\praca\dydaktyka\pracownia_problemowa\2016 /IE:\praca\dydaktyka\pracownia_problemowa\2016\TensometerModule\include /IE:\praca\dydaktyka\pracownia_problemowa\2016\TensometerModule /IE:\praca\dydaktyka\pracownia_problemowa\2016\TensometerModule\cmsis">
+      <source file="..\..\..\cmsis_boot\stm32f10x.h" lastModified="157fda555ee">
          <include file="..\..\..\cmsis\core_cm3.h"/>
          <include file="..\..\..\cmsis_boot\system_stm32f10x.h"/>
          <include file="..\..\..\cmsis_boot\stm32f10x_conf.h"/>
       </source>
-      <source file="..\..\..\include\led_interface.h" lastModified="15770347368">
-         <include file="..\..\..\cmsis_boot\stm32f10x.h"/>
-         <include file="..\..\..\include\hdr_bitband.h"/>
-      </source>
-      <source file="..\..\..\src\common.cpp" lastModified="159e5ac68bc">
-         <include file="..\..\..\include\common.h"/>
-      </source>
-      <source file="..\..\..\cmsis\core_cmInstr.h" lastModified="15770347abe">
-      </source>
-      <source file="..\..\..\include\hdr_bitband.h" lastModified="15770347368">
-      </source>
-      <source file="..\..\..\include\uart_communication_interface.h" lastModified="159e5a6a1bf">
-         <include file="..\..\..\cmsis_boot\stm32f10x.h"/>
-         <include file="..\..\..\include\stm32f10x_dma_extra.h"/>
-      </source>
-      <source file="..\..\..\include\ad7730_device.h" lastModified="159e642e48f">
-         <include file="..\..\..\cmsis_boot\stm32f10x.h"/>
-      </source>
-      <source file="..\..\..\cmsis_boot\stm32f10x_conf.h" lastModified="157703472f4">
-      </source>
-      <source file="..\..\..\include\stm32f10x_dma_extra.h" lastModified="1588c53b515">
-      </source>
-      <source file="..\..\..\cmsis\core_cm3.h" lastModified="157703476d4">
-         <include file="..\..\..\cmsis\core_cmInstr.h"/>
-         <include file="..\..\..\cmsis\core_cmFunc.h"/>
-      </source>
-      <source file="..\..\..\src\encoder_interface.cpp" lastModified="1577034736a">
-         <include file="..\..\..\include\encoder_interface.h"/>
-      </source>
-      <source file="..\..\..\include\common.h" lastModified="159e647ab6c">
+      <source file="..\..\..\include\common.h" lastModified="159e782d298">
          <include file="..\..\..\cmsis_boot\stm32f10x.h"/>
          <include file="..\..\..\include\led_interface.h"/>
          <include file="..\..\..\include\ad7730_device.h"/>
          <include file="..\..\..\include\uart_communication_interface.h"/>
       </source>
-      <source file="..\..\..\include\encoder_interface.h" lastModified="15770347367">
+      <source file="..\..\..\include\stm32f10x_dma_extra.h" lastModified="15227de93ab">
+      </source>
+      <source file="..\..\..\cmsis\core_cmFunc.h" lastModified="157fda559cd">
+      </source>
+      <source file="..\..\..\cmsis\core_cmInstr.h" lastModified="157fda559ce">
+      </source>
+      <source file="..\..\..\cmsis\core_cm3.h" lastModified="157fda555e5">
+         <include file="..\..\..\cmsis\core_cmInstr.h"/>
+         <include file="..\..\..\cmsis\core_cmFunc.h"/>
+      </source>
+      <source file="..\..\..\cmsis_boot\startup\startup_stm32f10x_md.c" lastModified="157fda55200">
+      </source>
+      <source file="..\..\..\include\uart_communication_interface.h" lastModified="159e6c0ee47">
+         <include file="..\..\..\cmsis_boot\stm32f10x.h"/>
+         <include file="..\..\..\include\stm32f10x_dma_extra.h"/>
+      </source>
+      <source file="..\..\..\src\uart_communication_interface.cpp" lastModified="159e9f27cf7">
+         <include file="..\..\..\include\uart_communication_interface.h"/>
+      </source>
+      <source file="..\..\..\include\ad7730_device.h" lastModified="159e7a0ada9">
          <include file="..\..\..\cmsis_boot\stm32f10x.h"/>
       </source>
-      <source file="..\..\..\cmsis_boot\system_stm32f10x.h" lastModified="157703472f6">
+      <source file="..\..\..\include\led_interface.h" lastModified="157fda552a5">
+         <include file="..\..\..\cmsis_boot\stm32f10x.h"/>
+         <include file="..\..\..\include\hdr_bitband.h"/>
       </source>
-      <source file="..\..\..\cmsis\core_cmFunc.h" lastModified="15770347abd">
+      <source file="..\..\..\cmsis_boot\stm32f10x_conf.h" lastModified="157fda55206">
       </source>
-      <source file="..\..\..\src\main.cpp" lastModified="1588c53b516">
+      <source file="..\..\..\cmsis_boot\system_stm32f10x.h" lastModified="157fda55208">
+      </source>
+      <source file="..\..\..\include\hdr_bitband.h" lastModified="157fda552a5">
+      </source>
+      <source file="..\..\..\src\common.cpp" lastModified="159e695679d">
          <include file="..\..\..\include\common.h"/>
       </source>
-      <source file="..\..\..\cmsis_boot\system_stm32f10x.c" lastModified="157703472f5">
+      <source file="..\..\..\cmsis_boot\system_stm32f10x.c" lastModified="157fda55207">
          <include file="..\..\..\cmsis_boot\stm32f10x.h"/>
       </source>
-      <source file="..\..\..\cmsis_boot\startup\startup_stm32f10x_md.c" lastModified="157703472ef">
-      </source>
-      <source file="..\..\..\src\uart_communication_interface.cpp" lastModified="159e635e02d">
-         <include file="..\..\..\include\uart_communication_interface.h"/>
+      <source file="..\..\..\src\main.cpp" lastModified="1585f9b7a1f">
+         <include file="..\..\..\include\common.h"/>
       </source>
    </includePath>
 </dependencies>
