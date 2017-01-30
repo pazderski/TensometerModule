@@ -35,7 +35,7 @@
           <Memory name="IROM2" type="ReadOnly" size="" startValue=""/>
           <Memory name="IRAM2" type="ReadWrite" size="" startValue=""/>
         </MemoryAreas>
-        <LocateLinkFile path="d:/tools/arm/coocox/coide/configuration/programdata/tensometer/arm-gcc-link.ld" type="0"/>
+        <LocateLinkFile path="../../../tools/arm/coocox/coide/configuration/programdata/tensometer/arm-gcc-link.ld" type="0"/>
       </Link>
       <Output>
         <Option name="OutputFileType" value="0"/>
@@ -88,11 +88,11 @@
     <File name="cmsis/core_cmFunc.h" path="cmsis/core_cmFunc.h" type="1"/>
     <File name="include" path="" type="2"/>
     <File name="cmsis_boot/startup/startup_stm32f10x_md.c" path="cmsis_boot/startup/startup_stm32f10x_md.c" type="1"/>
+    <File name="include/common.h" path="include/common.h" type="1"/>
     <File name="cmsis_boot/stm32f10x.h" path="cmsis_boot/stm32f10x.h" type="1"/>
     <File name="include/uart_communication_interface.h" path="include/uart_communication_interface.h" type="1"/>
-    <File name="include/common.h" path="include/common.h" type="1"/>
-    <File name="src/uart_communication_interface.cpp" path="src/uart_communication_interface.cpp" type="1"/>
     <File name="include/led_interface.h" path="include/led_interface.h" type="1"/>
+    <File name="src/uart_communication_interface.cpp" path="src/uart_communication_interface.cpp" type="1"/>
     <File name="cmsis_boot/stm32f10x_conf.h" path="cmsis_boot/stm32f10x_conf.h" type="1"/>
   </Files>
 </Project>

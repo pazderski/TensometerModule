@@ -53,15 +53,23 @@ class Tensometer
 	static uint16_t const MOD_REG_CH1 = 0x02;
 	static uint16_t const MOD_REG_RN1 = 0x10;
 	static uint16_t const MOD_REG_RN2 = 0x20;
-	static uint16_t const MOD_REG_MD0 = 0x2000;
-	static uint16_t const MOD_REG_MD1 = 0x4000;
-	static uint16_t const MOD_REG_MD2 = 0x8000;
+	static uint16_t const MOD_REG_MD0 = 0x20;
+	static uint16_t const MOD_REG_MD1 = 0x40;
+	static uint16_t const MOD_REG_MD2 = 0x80;
 
 	//Filter register
 	static uint16_t const FIL_REG_CHP = 0x10;
 	static uint16_t const FIL_REG_AC = 0x20;
-	static uint16_t const FIL_REG_FAST = 0x100;
-	static uint16_t const FIL_REG_SKIP = 0x200;
+	static uint16_t const FIL_REG_FAST = 0x01;
+	static uint16_t const FIL_REG_SKIP = 0x02;
+
+
+
+
+
+
+
+
 
 	//DAC register
 	static uint16_t const DAC_REG_DAC0 = 0x01;
@@ -254,7 +262,7 @@ class Tensometer
 			case FSM_DAC_CONFIG:
 
 				cmdTxBuf[0]=WRITE_DAC;							//Zmiana rejestru DAC
-				cmdTxBuf[1]=0x20;
+				cmdTxBuf[1]=DAC_REG_DAC5;
 				cmdSize=2;
 
 				TriggerTransmission();
@@ -266,7 +274,7 @@ class Tensometer
 
 				cmdTxBuf[0]=WRITE_FILTER;						//Zmiana rejestru FILTER
 				cmdTxBuf[1]=0x80;
-				cmdTxBuf[2]=0x02;
+				cmdTxBuf[2]=FIL_REG_SKIP;
 				cmdTxBuf[3]=0x00;
 				cmdSize=4;
 
@@ -278,8 +286,8 @@ class Tensometer
 			case FSM_MODE_CONFIG:
 
 				cmdTxBuf[0]=WRITE_MODE;							//Zmiana rejestru MODE
-				cmdTxBuf[1]=0x20;
-				cmdTxBuf[2]=0x80;
+				cmdTxBuf[1]=MOD_REG_RN2;
+				cmdTxBuf[2]=MOD_REG_MD2;
 				cmdSize=3;
 
 				TriggerTransmission();
